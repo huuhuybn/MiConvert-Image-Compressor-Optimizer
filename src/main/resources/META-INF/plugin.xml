@@ -1,0 +1,58 @@
+<idea-plugin>
+    <id>com.miconvert.imagecompressor</id>
+    <name>MiConvert Image Compressor</name>
+    <vendor email="support@miconvert.com" url="https://miconvert.com">MiConvert</vendor>
+
+    <description><![CDATA[
+        <h2>Optimize images without breaking your coding flow!</h2>
+        <p>Compress and optimize images (PNG, JPG, WebP) directly within your IDE with a single click.
+        Instantly reduce project size. Powered by <a href="https://miconvert.com">MiConvert.com</a>.</p>
+
+        <h3>Key Features</h3>
+        <ul>
+            <li><b>One-Click Compression</b> — Right-click any image file (or folder) and select "Compress Image".</li>
+            <li><b>Smart Engine</b> — Automatically compresses smaller files (&lt;2MB) seamlessly in the background.</li>
+            <li><b>Deep Web Integration</b> — Intelligently redirects heavy files (&gt;2MB) to the powerful MiConvert.com web engine.</li>
+            <li><b>Multi-Format Support</b> — Works flawlessly with JPG, PNG, and WebP.</li>
+        </ul>
+
+        <p><em>Note: Original files are safely backed up or overwritten based on your custom plugin settings.</em></p>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService
+                serviceImplementation="com.miconvert.imagecompressor.settings.MiConvertSettings"/>
+        <applicationConfigurable
+                parentId="tools"
+                instance="com.miconvert.imagecompressor.settings.MiConvertSettingsConfigurable"
+                id="com.miconvert.imagecompressor.settings"
+                displayName="MiConvert"/>
+        <notificationGroup id="MiConvert Notifications"
+                           displayType="BALLOON"
+                           isLogByDefault="true"/>
+    </extensions>
+
+    <actions>
+        <group id="MiConvert.ActionGroup"
+               text="MiConvert"
+               description="MiConvert Image Compression"
+               icon="/icons/compress.svg"
+               popup="true">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+
+            <action id="MiConvert.CompressImage"
+                    class="com.miconvert.imagecompressor.actions.CompressImageAction"
+                    text="⚡ Compress Image..."
+                    description="Compress the selected image file"
+                    icon="/icons/compress.svg"/>
+
+            <action id="MiConvert.CompressFolder"
+                    class="com.miconvert.imagecompressor.actions.CompressFolderAction"
+                    text="📁 Compress All Images in Folder..."
+                    description="Compress all image files in the selected folder"
+                    icon="/icons/compress.svg"/>
+        </group>
+    </actions>
+</idea-plugin>
