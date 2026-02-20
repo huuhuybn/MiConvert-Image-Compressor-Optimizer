@@ -476,182 +476,407 @@
             font-size: 14px;
         }
 
-        /* === DEMO MOCKUP === */
+        /* === IDE MOCKUP === */
         .demo-section {
             background: rgba(79, 195, 247, 0.02);
         }
 
-        .demo-mockup {
-            max-width: 700px;
+        .ide-mockup {
+            max-width: 1000px;
             margin: 0 auto;
-            background: #1a1f2e;
             border-radius: 16px;
-            border: 1px solid var(--border);
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.06);
         }
 
-        .demo-titlebar {
+        .ide-titlebar {
+            height: 34px;
+            background: #3c3f41;
             display: flex;
             align-items: center;
+            padding: 0 14px;
             gap: 8px;
-            padding: 12px 16px;
-            background: rgba(255, 255, 255, 0.03);
-            border-bottom: 1px solid var(--border);
         }
 
-        .demo-dot {
+        .ide-dot {
             width: 12px;
             height: 12px;
             border-radius: 50%;
         }
 
-        .demo-dot.red {
+        .ide-dot.r {
             background: #ff5f57;
         }
 
-        .demo-dot.yellow {
+        .ide-dot.y {
             background: #febc2e;
         }
 
-        .demo-dot.green {
+        .ide-dot.g {
             background: #28c840;
         }
 
-        .demo-titlebar-text {
+        .ide-title-text {
             flex: 1;
             text-align: center;
             font-size: 12px;
-            color: var(--text-dim);
+            color: #888;
         }
 
-        .demo-body {
-            display: flex;
-            min-height: 350px;
-        }
-
-        .demo-sidebar {
-            width: 220px;
-            padding: 16px;
-            border-right: 1px solid var(--border);
-            font-size: 13px;
-        }
-
-        .demo-sidebar-title {
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 12px;
-        }
-
-        .demo-file {
+        .ide-menubar {
+            height: 28px;
+            background: #3c3f41;
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 6px 8px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.2s;
+            border-bottom: 1px solid #515151;
+            padding: 0 10px;
+            gap: 2px;
         }
 
-        .demo-file:hover {
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .demo-file.selected {
-            background: rgba(79, 195, 247, 0.1);
-            color: var(--accent);
-        }
-
-        .demo-file-icon {
-            font-size: 14px;
-        }
-
-        .demo-file-name {
+        .ide-menubar span {
+            padding: 3px 8px;
             font-size: 12px;
+            color: #bababa;
+            border-radius: 3px;
         }
 
-        .demo-context-menu {
+        .ide-toolbar {
+            height: 32px;
+            background: #3c3f41;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #515151;
+            padding: 0 8px;
+            gap: 4px;
+        }
+
+        .ide-toolbar .tb-btn {
+            width: 24px;
+            height: 24px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            color: #bababa;
+        }
+
+        .ide-toolbar .sep {
+            width: 1px;
+            height: 20px;
+            background: #515151;
+            margin: 0 4px;
+        }
+
+        .ide-body {
+            display: flex;
+            min-height: 380px;
+            background: #2b2b2b;
+        }
+
+        .ide-sidebar {
+            width: 260px;
+            background: #3c3f41;
+            border-right: 1px solid #515151;
+            flex-shrink: 0;
+        }
+
+        .ide-sidebar-header {
+            height: 28px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #bababa;
+            border-bottom: 1px solid #515151;
+            background: #3c3f41;
+        }
+
+        .ide-tree {
+            padding: 4px 0;
+            font-size: 13px;
+            color: #bababa;
+        }
+
+        .ide-tree-item {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            padding: 2px 4px 2px 0;
+            height: 22px;
+        }
+
+        .ide-tree-item .indent {
+            width: 18px;
+            flex-shrink: 0;
+        }
+
+        .ide-tree-item .arrow {
+            width: 16px;
+            text-align: center;
+            font-size: 10px;
+            color: #777;
+            flex-shrink: 0;
+        }
+
+        .ide-tree-item .t-icon {
+            width: 16px;
+            font-size: 12px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .ide-tree-item .t-name {
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .ide-tree-item.selected {
+            background: #2d5577;
+        }
+
+        .ide-tree-item.selected .t-name {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .ide-editor {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ide-tabs {
+            height: 28px;
+            display: flex;
+            align-items: stretch;
+            background: #3c3f41;
+            border-bottom: 1px solid #515151;
+        }
+
+        .ide-tab {
+            padding: 0 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            color: #bababa;
+            border-right: 1px solid #515151;
+        }
+
+        .ide-tab.active {
+            background: #4e5254;
+            color: #fff;
+        }
+
+        .ide-code {
+            flex: 1;
+            padding: 8px 0;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+            font-size: 13px;
+            line-height: 20px;
+            overflow: hidden;
+        }
+
+        .cl {
+            display: flex;
+            padding: 0 12px;
+        }
+
+        .cl .ln {
+            width: 36px;
+            text-align: right;
+            color: #606366;
+            padding-right: 14px;
+            flex-shrink: 0;
+        }
+
+        .cl .cd {
+            flex: 1;
+            white-space: pre;
+        }
+
+        .kw {
+            color: #cc7832;
+        }
+
+        .str {
+            color: #6a8759;
+        }
+
+        .cmt {
+            color: #808080;
+        }
+
+        .num {
+            color: #6897bb;
+        }
+
+        .fn {
+            color: #ffc66d;
+        }
+
+        .ann {
+            color: #bbb529;
+        }
+
+        .ide-statusbar {
+            height: 24px;
+            background: #3c3f41;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #515151;
+            padding: 0 10px;
+            font-size: 11px;
+            color: #777;
+            justify-content: space-between;
+        }
+
+        /* Context menu overlay */
+        .ide-ctx-menu {
             position: absolute;
-            background: #252a3a;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 8px;
-            padding: 4px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            min-width: 240px;
-            left: 240px;
-            top: 170px;
+            background: #3c3f41;
+            border: 1px solid #515151;
+            border-radius: 6px;
+            padding: 4px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            min-width: 260px;
+            z-index: 10;
             opacity: 0;
             transform: scale(0.95);
-            animation: menuAppear 0.6s 1s forwards;
+            animation: ctxAppear 0.5s 1s forwards;
         }
 
-        @keyframes menuAppear {
+        @keyframes ctxAppear {
             to {
                 opacity: 1;
                 transform: scale(1);
             }
         }
 
-        .demo-menu-item {
+        .ctx-i {
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 8px 12px;
-            border-radius: 6px;
+            padding: 4px 16px;
             font-size: 13px;
-            transition: background 0.15s;
+            color: #bababa;
         }
 
-        .demo-menu-item:hover {
-            background: rgba(255, 255, 255, 0.06);
+        .ctx-i .sc {
+            margin-left: auto;
+            font-size: 11px;
+            color: #666;
         }
 
-        .demo-menu-item.highlight {
-            background: rgba(79, 195, 247, 0.12);
-            color: var(--accent);
+        .ctx-i.hl {
+            background: #2d5577;
+            color: #fff;
+            font-weight: 600;
         }
 
-        .demo-menu-sep {
+        .ctx-i.dim {
+            color: #8899aa;
+        }
+
+        .ctx-s {
             height: 1px;
-            background: rgba(255, 255, 255, 0.06);
-            margin: 4px 8px;
+            background: #515151;
+            margin: 4px 6px;
         }
 
-        .demo-editor {
-            flex: 1;
-            padding: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-dim);
-            font-size: 14px;
-        }
-
-        .demo-notif {
+        /* Success notification */
+        .ide-notif {
             position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background: #1b2836;
-            border: 1px solid rgba(74, 222, 128, 0.3);
+            bottom: 36px;
+            right: 16px;
+            background: #2d3b2d;
+            border: 1px solid rgba(73, 156, 84, 0.4);
             border-radius: 10px;
-            padding: 12px 18px;
+            padding: 12px 16px;
             font-size: 13px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            color: #a8d5ab;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
             opacity: 0;
             transform: translateY(10px);
-            animation: notifAppear 0.5s 2s forwards;
+            animation: notifSlide 0.5s 2.2s forwards;
+            z-index: 20;
         }
 
-        @keyframes notifAppear {
+        @keyframes notifSlide {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        .ide-notif .ntitle {
+            color: #6bc071;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .ide-notif .nstat {
+            color: #6bc071;
+            font-weight: 700;
+        }
+
+        /* === SCREENSHOT SHOWCASE === */
+        .showcase-section {
+            background: rgba(102, 126, 234, 0.02);
+        }
+
+        .showcase-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .showcase-tab {
+            padding: 10px 24px;
+            border-radius: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dim);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .showcase-tab.active,
+        .showcase-tab:hover {
+            background: rgba(79, 195, 247, 0.12);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .showcase-frame {
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 16px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .showcase-img {
+            width: 100%;
+            display: none;
+        }
+
+        .showcase-img.active {
+            display: block;
+        }
+
+        .showcase-caption {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 14px;
+            color: var(--text-dim);
         }
 
         /* === COMPAT === */
@@ -805,13 +1030,13 @@
                 display: none;
             }
 
-            .demo-sidebar {
-                width: 160px;
+            .ide-sidebar {
+                width: 180px;
             }
 
-            .demo-context-menu {
-                left: 160px;
-                min-width: 200px;
+            .ide-ctx-menu {
+                left: 160px !important;
+                min-width: 220px;
             }
 
             .cta-box {
@@ -820,19 +1045,19 @@
         }
 
         @media (max-width: 480px) {
-            .demo-body {
+            .ide-body {
                 flex-direction: column;
             }
 
-            .demo-sidebar {
+            .ide-sidebar {
                 width: 100%;
                 border-right: none;
-                border-bottom: 1px solid var(--border);
+                border-bottom: 1px solid #515151;
             }
 
-            .demo-context-menu {
-                left: 20px;
-                top: 220px;
+            .ide-ctx-menu {
+                left: 20px !important;
+                top: 250px !important;
             }
         }
     </style>
@@ -853,6 +1078,7 @@
                 <li><a href="#features">Features</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#demo">Preview</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
                 <li><a href="#compatibility">IDEs</a></li>
                 <li><a href="https://miconvert.com" target="_blank" class="nav-cta">MiConvert.com</a></li>
             </ul>
@@ -907,35 +1133,30 @@
                     <p>Right-click any image file and select "Compress Image". That's it. No dialogs, no exports, no
                         hassle.</p>
                 </div>
-
                 <div class="feature-card reveal">
                     <div class="feature-icon icon-smart">🧠</div>
                     <h3>Smart Engine</h3>
                     <p>Files under 2MB are compressed silently in the background. You won't even notice — just smaller
                         files.</p>
                 </div>
-
                 <div class="feature-card reveal">
                     <div class="feature-icon icon-web">🌐</div>
                     <h3>Deep Web Integration</h3>
                     <p>Heavy files (>2MB) are intelligently redirected to MiConvert.com's powerful cloud engine for deep
                         optimization.</p>
                 </div>
-
                 <div class="feature-card reveal">
                     <div class="feature-icon icon-folder">📁</div>
                     <h3>Batch Processing</h3>
                     <p>Right-click any folder to compress all images recursively. Perfect for cleaning up asset
                         directories.</p>
                 </div>
-
                 <div class="feature-card reveal">
                     <div class="feature-icon icon-formats">🎨</div>
                     <h3>Multi-Format Support</h3>
                     <p>Works flawlessly with JPG, PNG, and WebP formats. The most common image types in web projects.
                     </p>
                 </div>
-
                 <div class="feature-card reveal">
                     <div class="feature-icon icon-settings">⚙️</div>
                     <h3>Fully Customizable</h3>
@@ -953,20 +1174,17 @@
                 <h2>How It Works</h2>
                 <p>Three steps. Zero friction.</p>
             </div>
-
             <div class="steps">
                 <div class="step reveal">
                     <div class="step-number">1</div>
                     <h3>Right-Click</h3>
                     <p>Select any image file or folder in your Project Tree</p>
                 </div>
-
                 <div class="step reveal">
                     <div class="step-number">2</div>
                     <h3>Compress</h3>
                     <p>Click "⚡ Compress Image..." from the MiConvert menu</p>
                 </div>
-
                 <div class="step reveal">
                     <div class="step-number">3</div>
                     <h3>Done ✓</h3>
@@ -976,7 +1194,7 @@
         </div>
     </section>
 
-    <!-- DEMO -->
+    <!-- LIVE IDE DEMO -->
     <section id="demo" class="demo-section">
         <div class="section-inner">
             <div class="section-header reveal">
@@ -984,62 +1202,175 @@
                 <p>Native IDE experience — no popups, no interruptions.</p>
             </div>
 
-            <div class="demo-mockup reveal" style="position: relative;">
-                <div class="demo-titlebar">
-                    <div class="demo-dot red"></div>
-                    <div class="demo-dot yellow"></div>
-                    <div class="demo-dot green"></div>
-                    <div class="demo-titlebar-text">my-project — IntelliJ IDEA</div>
+            <div class="ide-mockup reveal" style="position: relative;">
+                <!-- TITLEBAR -->
+                <div class="ide-titlebar">
+                    <div class="ide-dot r"></div>
+                    <div class="ide-dot y"></div>
+                    <div class="ide-dot g"></div>
+                    <div class="ide-title-text">my-web-project — src/assets — IntelliJ IDEA</div>
+                </div>
+                <!-- MENUBAR -->
+                <div class="ide-menubar">
+                    <span>File</span><span>Edit</span><span>View</span><span>Navigate</span><span>Code</span><span>Refactor</span><span>Build</span><span>Run</span><span>Tools</span><span>VCS</span><span>Window</span><span>Help</span>
+                </div>
+                <!-- TOOLBAR -->
+                <div class="ide-toolbar">
+                    <div class="tb-btn">📂</div>
+                    <div class="tb-btn">💾</div>
+                    <div class="sep"></div>
+                    <div class="tb-btn">↩️</div>
+                    <div class="tb-btn">↪️</div>
+                    <div class="sep"></div>
+                    <div class="tb-btn">🔨</div>
+                    <div class="tb-btn">▶️</div>
+                    <div class="tb-btn">🐛</div>
+                    <div class="sep"></div>
+                    <div class="tb-btn">🔍</div>
+                </div>
+                <!-- BODY -->
+                <div class="ide-body">
+                    <!-- PROJECT TREE -->
+                    <div class="ide-sidebar">
+                        <div class="ide-sidebar-header">▼ Project</div>
+                        <div class="ide-tree">
+                            <div class="ide-tree-item"><span class="arrow">▼</span><span class="t-icon">📁</span><span
+                                    class="t-name" style="font-weight:600">my-web-project</span></div>
+                            <div class="ide-tree-item"><span class="indent"></span><span class="arrow">▼</span><span
+                                    class="t-icon">📁</span><span class="t-name">src</span></div>
+                            <div class="ide-tree-item"><span class="indent"></span><span class="indent"></span><span
+                                    class="arrow">▼</span><span class="t-icon">📁</span><span
+                                    class="t-name">assets</span></div>
+                            <div class="ide-tree-item"><span class="indent"></span><span class="indent"></span><span
+                                    class="indent"></span><span class="arrow"></span><span
+                                    class="t-icon">🖼️</span><span class="t-name">hero-banner.png</span></div>
+                            <div class="ide-tree-item selected"><span class="indent"></span><span
+                                    class="indent"></span><span class="indent"></span><span class="arrow"></span><span
+                                    class="t-icon">🖼️</span><span class="t-name">product-shot.jpg</span></div>
+                            <div class="ide-tree-item"><span class="indent"></span><span class="indent"></span><span
+                                    class="indent"></span><span class="arrow"></span><span
+                                    class="t-icon">🖼️</span><span class="t-name">logo.webp</span></div>
+                            <div class="ide-tree-item"><span class="indent"></span><span class="indent"></span><span
+                                    class="indent"></span><span class="arrow"></span><span
+                                    class="t-icon">🖼️</span><span class="t-name">background.png</span></div>
+                            <div class="ide-tree-item"><span class="indent"></span><span class="indent"></span><span
+                                    class="arrow">▶</span><span class="t-icon">📁</span><span
+                                    class="t-name">components</span></div>
+                            <div class="ide-tree-item"><span class="indent"></span><span class="indent"></span><span
+                                    class="arrow">▶</span><span class="t-icon">📁</span><span
+                                    class="t-name">pages</span></div>
+                            <div class="ide-tree-item"><span class="indent"></span><span class="indent"></span><span
+                                    class="arrow"></span><span class="t-icon">📄</span><span
+                                    class="t-name">App.tsx</span></div>
+                            <div class="ide-tree-item"><span class="indent"></span><span class="indent"></span><span
+                                    class="arrow"></span><span class="t-icon">📄</span><span
+                                    class="t-name">index.tsx</span></div>
+                            <div class="ide-tree-item"><span class="indent"></span><span class="arrow">▶</span><span
+                                    class="t-icon">📁</span><span class="t-name">public</span></div>
+                            <div class="ide-tree-item"><span class="indent"></span><span class="arrow"></span><span
+                                    class="t-icon">📄</span><span class="t-name">package.json</span></div>
+                        </div>
+                    </div>
+                    <!-- EDITOR -->
+                    <div class="ide-editor">
+                        <div class="ide-tabs">
+                            <div class="ide-tab active"><span>📄</span> App.tsx <span
+                                    style="opacity:0.4;font-size:10px">✕</span></div>
+                            <div class="ide-tab"><span>📄</span> index.tsx <span
+                                    style="opacity:0.4;font-size:10px">✕</span></div>
+                        </div>
+                        <div class="ide-code">
+                            <div class="cl"><span class="ln">1</span><span class="cd"><span class="kw">import</span>
+                                    React <span class="kw">from</span> <span class="str">'react'</span>;</span></div>
+                            <div class="cl"><span class="ln">2</span><span class="cd"><span class="kw">import</span>
+                                    heroImg <span class="kw">from</span> <span
+                                        class="str">'./assets/hero-banner.png'</span>;</span></div>
+                            <div class="cl"><span class="ln">3</span><span class="cd"><span class="kw">import</span>
+                                    productImg <span class="kw">from</span> <span
+                                        class="str">'./assets/product-shot.jpg'</span>;</span></div>
+                            <div class="cl"><span class="ln">4</span><span class="cd"></span></div>
+                            <div class="cl"><span class="ln">5</span><span class="cd"><span class="kw">const</span>
+                                    <span class="fn">App</span> = () <span class="kw">=></span> {</span></div>
+                            <div class="cl"><span class="ln">6</span><span class="cd"> <span class="kw">return</span>
+                                    (</span></div>
+                            <div class="cl"><span class="ln">7</span><span class="cd"> &lt;<span class="kw">div</span>
+                                    <span class="ann">className</span>=<span class="str">"app"</span>&gt;</span></div>
+                            <div class="cl"><span class="ln">8</span><span class="cd"> &lt;<span class="kw">img</span>
+                                    <span class="ann">src</span>={heroImg} <span class="ann">alt</span>=<span
+                                        class="str">"Hero"</span> /&gt;</span></div>
+                            <div class="cl"><span class="ln">9</span><span class="cd"> &lt;<span class="kw">img</span>
+                                    <span class="ann">src</span>={productImg} <span class="ann">alt</span>=<span
+                                        class="str">"Product"</span> /&gt;</span></div>
+                            <div class="cl"><span class="ln">10</span><span class="cd"> <span class="cmt">// TODO:
+                                        optimize images before deploy</span></span></div>
+                            <div class="cl"><span class="ln">11</span><span class="cd"> &lt;/<span
+                                        class="kw">div</span>&gt;</span></div>
+                            <div class="cl"><span class="ln">12</span><span class="cd"> );</span></div>
+                            <div class="cl"><span class="ln">13</span><span class="cd">};</span></div>
+                            <div class="cl"><span class="ln">14</span><span class="cd"></span></div>
+                            <div class="cl"><span class="ln">15</span><span class="cd"><span class="kw">export
+                                        default</span> App;</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- STATUSBAR -->
+                <div class="ide-statusbar">
+                    <span>LF UTF-8 4 spaces TypeScript Git: main</span>
+                    <span>15:3 CRLF UTF-8</span>
                 </div>
 
-                <div class="demo-body">
-                    <div class="demo-sidebar">
-                        <div class="demo-sidebar-title">Project</div>
-                        <div class="demo-file">
-                            <span class="demo-file-icon">📁</span>
-                            <span class="demo-file-name">src/</span>
-                        </div>
-                        <div class="demo-file">
-                            <span class="demo-file-icon">📁</span>
-                            <span class="demo-file-name">assets/</span>
-                        </div>
-                        <div class="demo-file" style="padding-left: 24px;">
-                            <span class="demo-file-icon">🖼️</span>
-                            <span class="demo-file-name">hero.png</span>
-                        </div>
-                        <div class="demo-file selected" style="padding-left: 24px;">
-                            <span class="demo-file-icon">🖼️</span>
-                            <span class="demo-file-name">banner.jpg</span>
-                        </div>
-                        <div class="demo-file" style="padding-left: 24px;">
-                            <span class="demo-file-icon">🖼️</span>
-                            <span class="demo-file-name">logo.webp</span>
-                        </div>
-                        <div class="demo-file">
-                            <span class="demo-file-icon">📄</span>
-                            <span class="demo-file-name">index.html</span>
-                        </div>
-                    </div>
-
-                    <div class="demo-editor">
-                        <span style="opacity: 0.4">// Select an image to edit</span>
-                    </div>
-
-                    <!-- Context Menu -->
-                    <div class="demo-context-menu">
-                        <div class="demo-menu-item">📋 Copy</div>
-                        <div class="demo-menu-item">📋 Paste</div>
-                        <div class="demo-menu-sep"></div>
-                        <div class="demo-menu-item">🗑️ Delete</div>
-                        <div class="demo-menu-sep"></div>
-                        <div class="demo-menu-item highlight">⚡ Compress Image...</div>
-                        <div class="demo-menu-item" style="color: var(--text-dim);">📁 Compress All Images...</div>
-                    </div>
+                <!-- CONTEXT MENU -->
+                <div class="ide-ctx-menu" style="left: 220px; top: 230px;">
+                    <div class="ctx-i"><span>📋</span> Copy <span class="sc">Ctrl+C</span></div>
+                    <div class="ctx-i"><span>📄</span> Copy Path/Reference <span class="sc">▸</span></div>
+                    <div class="ctx-i"><span>📋</span> Paste <span class="sc">Ctrl+V</span></div>
+                    <div class="ctx-s"></div>
+                    <div class="ctx-i"><span>✏️</span> Rename... <span class="sc">Shift+F6</span></div>
+                    <div class="ctx-i"><span>🗑️</span> Delete <span class="sc">Delete</span></div>
+                    <div class="ctx-s"></div>
+                    <div class="ctx-i hl"><span>⚡</span> Compress Image...</div>
+                    <div class="ctx-i dim"><span>📁</span> Compress All Images in Folder...</div>
+                    <div class="ctx-s"></div>
+                    <div class="ctx-i"><span>🔍</span> Find Usages <span class="sc">Alt+F7</span></div>
                 </div>
 
-                <!-- Success notification -->
-                <div class="demo-notif">
-                    ✅ <span>Compressed! Saved <strong>145KB</strong> (45%)</span>
+                <!-- SUCCESS NOTIFICATION -->
+                <div class="ide-notif">
+                    <div class="ntitle">✅ MiConvert — Compressed Successfully!</div>
+                    <div><strong>product-shot.jpg</strong></div>
+                    <div>Original: 1.4 MB → Compressed: 780 KB</div>
+                    <div class="nstat">Saved 620 KB (44%)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREENSHOT SHOWCASE -->
+    <section id="screenshots" class="showcase-section">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <h2>Plugin Screenshots</h2>
+                <p>See every feature in detail — right inside your JetBrains IDE.</p>
+            </div>
+
+            <div class="reveal">
+                <div class="showcase-tabs">
+                    <div class="showcase-tab active" onclick="showScreenshot(0)">⚡ Context Menu</div>
+                    <div class="showcase-tab" onclick="showScreenshot(1)">✅ Compression Result</div>
+                    <div class="showcase-tab" onclick="showScreenshot(2)">⚙️ Settings Page</div>
+                </div>
+
+                <div class="showcase-frame">
+                    <img class="showcase-img active" src="screenshots/01-context-menu.png"
+                        alt="Right-click context menu showing Compress Image action in IntelliJ IDEA">
+                    <img class="showcase-img" src="screenshots/02-compression-success.png"
+                        alt="Background compression with success notification showing 44% savings">
+                    <img class="showcase-img" src="screenshots/03-settings-page.png"
+                        alt="MiConvert settings page under Tools with output mode and JPEG quality controls">
+                </div>
+
+                <div class="showcase-caption" id="showcase-caption">
+                    Right-click any image → ⚡ Compress Image... — one click, instant compression
                 </div>
             </div>
         </div>
@@ -1096,6 +1427,7 @@
             <a href="https://miconvert.com/en/compress-tools" target="_blank">Web Compressor</a>
             <a href="https://miconvert.com/en/contact" target="_blank">Contact</a>
             <a href="https://github.com/huuhuybn/MiConvert-Image-Compressor-Optimizer" target="_blank">GitHub</a>
+            <a href="https://github.com/huuhuybn/MiConvert-Image-Compressor-Optimizer/wiki" target="_blank">Wiki</a>
         </div>
     </footer>
 
@@ -1122,6 +1454,23 @@
                 nav.style.background = 'rgba(10,14,26,0.8)';
             }
         });
+
+        // Screenshot showcase tabs
+        const captions = [
+            'Right-click any image → ⚡ Compress Image... — one click, instant compression',
+            'Smart background compression with real-time notification — saved 620 KB (44%)',
+            'Fully customizable settings: output mode, JPEG quality, and file size threshold'
+        ];
+
+        function showScreenshot(index) {
+            document.querySelectorAll('.showcase-img').forEach((img, i) => {
+                img.classList.toggle('active', i === index);
+            });
+            document.querySelectorAll('.showcase-tab').forEach((tab, i) => {
+                tab.classList.toggle('active', i === index);
+            });
+            document.getElementById('showcase-caption').textContent = captions[index];
+        }
     </script>
 
 </body>

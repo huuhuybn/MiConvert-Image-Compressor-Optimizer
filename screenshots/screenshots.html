@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MiConvert Plugin Screenshots — 1200×760</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #2b2b2b;
+            font-family: 'Inter', sans-serif;
+            padding: 40px;
+        }
+
+        h2 {
+            color: #fff;
+            text-align: center;
+            margin: 40px 0 16px;
+            font-size: 18px;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        p.hint {
+            color: #888;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+
+        .screenshot {
+            width: 1200px;
+            height: 760px;
+            margin: 0 auto 60px;
+            border: 2px solid #555;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* ========== IntelliJ Theme ========== */
+        :root {
+            --ij-bg: #3c3f41;
+            --ij-bg2: #313335;
+            --ij-bg3: #2b2b2b;
+            --ij-text: #bababa;
+            --ij-text-bright: #d4d4d4;
+            --ij-border: #515151;
+            --ij-accent: #4e94ce;
+            --ij-selected: #2d5577;
+            --ij-tree-bg: #3c3f41;
+            --ij-editor-bg: #2b2b2b;
+            --ij-menubar: #3c3f41;
+            --ij-toolbar: #3c3f41;
+            --ij-status: #3c3f41;
+            --ij-tab-active: #4e5254;
+            --ij-green: #499c54;
+            --ij-yellow: #bbb529;
+            --ij-keyword: #cc7832;
+            --ij-string: #6a8759;
+            --ij-comment: #808080;
+            --ij-number: #6897bb;
+            --ij-func: #ffc66d;
+        }
+
+        /* ========== COMMON IDE CHROME ========== */
+        .ide-frame {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: var(--ij-bg3);
+        }
+
+        .ide-titlebar {
+            height: 30px;
+            background: var(--ij-bg);
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--ij-border);
+            padding: 0 12px;
+            font-size: 12px;
+            color: var(--ij-text);
+        }
+
+        .ide-titlebar .dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .ide-titlebar .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .ide-titlebar .dot.r {
+            background: #ff5f57;
+        }
+
+        .ide-titlebar .dot.y {
+            background: #febc2e;
+        }
+
+        .ide-titlebar .dot.g {
+            background: #28c840;
+        }
+
+        .ide-titlebar .title {
+            flex: 1;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .ide-menubar {
+            height: 28px;
+            background: var(--ij-menubar);
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--ij-border);
+            padding: 0 8px;
+            gap: 2px;
+        }
+
+        .ide-menubar span {
+            padding: 3px 8px;
+            font-size: 12px;
+            color: var(--ij-text);
+            border-radius: 4px;
+        }
+
+        .ide-menubar span:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .ide-toolbar {
+            height: 32px;
+            background: var(--ij-toolbar);
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--ij-border);
+            padding: 0 8px;
+            gap: 4px;
+        }
+
+        .ide-toolbar .tb-btn {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--ij-text);
+        }
+
+        .ide-toolbar .sep {
+            width: 1px;
+            height: 20px;
+            background: var(--ij-border);
+            margin: 0 4px;
+        }
+
+        .ide-body {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .ide-sidebar {
+            width: 280px;
+            background: var(--ij-tree-bg);
+            border-right: 1px solid var(--ij-border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-header {
+            height: 28px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--ij-text);
+            border-bottom: 1px solid var(--ij-border);
+            background: var(--ij-bg);
+        }
+
+        .tree {
+            padding: 4px 0;
+            font-size: 13px;
+            color: var(--ij-text);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tree-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 8px 2px 0;
+            height: 22px;
+            cursor: default;
+        }
+
+        .tree-item .indent {
+            width: 18px;
+            flex-shrink: 0;
+        }
+
+        .tree-item .arrow {
+            width: 16px;
+            text-align: center;
+            font-size: 10px;
+            color: #888;
+            flex-shrink: 0;
+        }
+
+        .tree-item .icon {
+            width: 16px;
+            height: 16px;
+            font-size: 13px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .tree-item .name {
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .tree-item.selected {
+            background: var(--ij-selected);
+        }
+
+        .tree-item.selected .name {
+            color: #fff;
+        }
+
+        .ide-editor {
+            flex: 1;
+            background: var(--ij-editor-bg);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .editor-tabs {
+            height: 28px;
+            display: flex;
+            align-items: stretch;
+            background: var(--ij-bg);
+            border-bottom: 1px solid var(--ij-border);
+        }
+
+        .editor-tab {
+            padding: 0 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--ij-text);
+            border-right: 1px solid var(--ij-border);
+        }
+
+        .editor-tab.active {
+            background: var(--ij-tab-active);
+            color: #fff;
+        }
+
+        .editor-tab .close {
+            font-size: 10px;
+            opacity: 0.5;
+        }
+
+        .editor-content {
+            flex: 1;
+            padding: 8px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            line-height: 20px;
+            overflow: hidden;
+        }
+
+        .code-line {
+            display: flex;
+            padding: 0 16px;
+        }
+
+        .code-line .ln {
+            width: 40px;
+            text-align: right;
+            color: #606366;
+            padding-right: 16px;
+            user-select: none;
+            flex-shrink: 0;
+        }
+
+        .code-line .code {
+            flex: 1;
+        }
+
+        .kw {
+            color: var(--ij-keyword);
+        }
+
+        .str {
+            color: var(--ij-string);
+        }
+
+        .cmt {
+            color: var(--ij-comment);
+        }
+
+        .num {
+            color: var(--ij-number);
+        }
+
+        .fn {
+            color: var(--ij-func);
+        }
+
+        .ann {
+            color: #bbb529;
+        }
+
+        .typ {
+            color: #a9b7c6;
+        }
+
+        .ide-statusbar {
+            height: 24px;
+            background: var(--ij-status);
+            display: flex;
+            align-items: center;
+            border-top: 1px solid var(--ij-border);
+            padding: 0 10px;
+            font-size: 11px;
+            color: #888;
+            justify-content: space-between;
+        }
+
+        /* ========== CONTEXT MENU ========== */
+        .ctx-menu {
+            position: absolute;
+            background: var(--ij-bg);
+            border: 1px solid var(--ij-border);
+            border-radius: 6px;
+            padding: 4px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            min-width: 260px;
+            z-index: 10;
+        }
+
+        .ctx-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 4px 20px;
+            font-size: 13px;
+            color: var(--ij-text);
+        }
+
+        .ctx-item:hover {
+            background: var(--ij-selected);
+            color: #fff;
+        }
+
+        .ctx-item.highlight {
+            background: var(--ij-selected);
+            color: #fff;
+        }
+
+        .ctx-item .shortcut {
+            margin-left: auto;
+            font-size: 11px;
+            color: #888;
+        }
+
+        .ctx-item .icon-sm {
+            width: 16px;
+            text-align: center;
+        }
+
+        .ctx-sep {
+            height: 1px;
+            background: var(--ij-border);
+            margin: 4px 8px;
+        }
+
+        .ctx-submenu {
+            position: relative;
+        }
+
+        .ctx-submenu::after {
+            content: '▸';
+            position: absolute;
+            right: 12px;
+            color: #888;
+            font-size: 10px;
+        }
+
+        /* ========== NOTIFICATION ========== */
+        .notif-balloon {
+            position: absolute;
+            border-radius: 10px;
+            padding: 14px 18px;
+            font-size: 13px;
+            z-index: 20;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .notif-success {
+            background: #2d3b2d;
+            border: 1px solid rgba(73, 156, 84, 0.4);
+            color: #a8d5ab;
+        }
+
+        .notif-success .notif-title {
+            color: #6bc071;
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-size: 13px;
+        }
+
+        /* ========== PROGRESS BAR ========== */
+        .progress-bar-container {
+            position: absolute;
+            bottom: 24px;
+            left: 281px;
+            right: 0;
+            height: 3px;
+            background: var(--ij-bg2);
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 72%;
+            background: linear-gradient(90deg, var(--ij-accent), #69b7e6);
+            border-radius: 0 2px 2px 0;
+            animation: progressAnim 2s ease-in-out infinite;
+        }
+
+        @keyframes progressAnim {
+            0% {
+                width: 30%;
+            }
+
+            50% {
+                width: 80%;
+            }
+
+            100% {
+                width: 95%;
+            }
+        }
+
+        .progress-label {
+            position: absolute;
+            bottom: 28px;
+            right: 10px;
+            font-size: 11px;
+            color: var(--ij-accent);
+        }
+
+        /* ========== SETTINGS DIALOG ========== */
+        .settings-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 30;
+        }
+
+        .settings-dialog {
+            width: 900px;
+            height: 580px;
+            background: var(--ij-bg);
+            border-radius: 8px;
+            border: 1px solid var(--ij-border);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .settings-titlebar {
+            height: 36px;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ij-text-bright);
+            border-bottom: 1px solid var(--ij-border);
+        }
+
+        .settings-body {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .settings-tree {
+            width: 240px;
+            background: var(--ij-bg2);
+            border-right: 1px solid var(--ij-border);
+            padding: 8px 0;
+            overflow-y: auto;
+        }
+
+        .stree-item {
+            padding: 4px 12px;
+            font-size: 13px;
+            color: var(--ij-text);
+            cursor: default;
+        }
+
+        .stree-item.parent {
+            font-weight: 500;
+        }
+
+        .stree-item.child {
+            padding-left: 28px;
+        }
+
+        .stree-item.selected {
+            background: var(--ij-selected);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .settings-content {
+            flex: 1;
+            padding: 20px 24px;
+            overflow-y: auto;
+            color: var(--ij-text);
+        }
+
+        .settings-content h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--ij-text-bright);
+            margin-bottom: 16px;
+        }
+
+        .settings-group {
+            margin-bottom: 24px;
+        }
+
+        .settings-group label {
+            font-size: 13px;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 10px;
+            color: var(--ij-text-bright);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .radio-circle {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid #888;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .radio-circle.checked {
+            border-color: var(--ij-accent);
+        }
+
+        .radio-circle.checked::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--ij-accent);
+        }
+
+        .slider-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 6px;
+        }
+
+        .slider-track {
+            width: 200px;
+            height: 4px;
+            background: #555;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .slider-fill {
+            width: 80%;
+            height: 100%;
+            background: var(--ij-accent);
+            border-radius: 2px;
+        }
+
+        .slider-thumb {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--ij-accent);
+            position: absolute;
+            top: -5px;
+            left: calc(80% - 7px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .slider-val {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--ij-accent);
+        }
+
+        .info-text {
+            font-size: 12px;
+            color: #888;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .link {
+            color: var(--ij-accent);
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        .settings-footer {
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 16px;
+            gap: 8px;
+            border-top: 1px solid var(--ij-border);
+        }
+
+        .btn-settings {
+            padding: 6px 20px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid var(--ij-border);
+            background: var(--ij-bg2);
+            color: var(--ij-text);
+            cursor: pointer;
+        }
+
+        .btn-settings.primary {
+            background: var(--ij-accent);
+            border-color: var(--ij-accent);
+            color: #fff;
+        }
+
+        /* ========== OVERLAY TEXT BADGE ========== */
+        .overlay-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(78, 148, 206, 0.9);
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 50;
+            letter-spacing: 0.02em;
+        }
+
+        /* ========== LARGE FILE DIALOG ========== */
+        .dialog-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 30;
+        }
+
+        .dialog-box {
+            width: 480px;
+            background: var(--ij-bg);
+            border-radius: 8px;
+            border: 1px solid var(--ij-border);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+            padding: 24px;
+        }
+
+        .dialog-box h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--ij-text-bright);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dialog-box p {
+            font-size: 13px;
+            color: var(--ij-text);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .dialog-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== SCREENSHOT 1: Right-Click Context Menu ===== -->
+    <h2>Screenshot 1 — Right-Click Context Menu (1200×760)</h2>
+    <p class="hint">Right-click this screenshot → "Save image as..." or use Snipping Tool to capture at 1200×760</p>
+
+    <div class="screenshot" id="ss1">
+        <div class="ide-frame">
+            <div class="ide-titlebar">
+                <div class="dots">
+                    <div class="dot r"></div>
+                    <div class="dot y"></div>
+                    <div class="dot g"></div>
+                </div>
+                <div class="title">my-web-project — src/assets — IntelliJ IDEA</div>
+            </div>
+            <div class="ide-menubar">
+                <span>File</span><span>Edit</span><span>View</span><span>Navigate</span><span>Code</span><span>Refactor</span><span>Build</span><span>Run</span><span>Tools</span><span>VCS</span><span>Window</span><span>Help</span>
+            </div>
+            <div class="ide-toolbar">
+                <div class="tb-btn">📂</div>
+                <div class="tb-btn">💾</div>
+                <div class="sep"></div>
+                <div class="tb-btn">↩️</div>
+                <div class="tb-btn">↪️</div>
+                <div class="sep"></div>
+                <div class="tb-btn">🔨</div>
+                <div class="tb-btn">▶️</div>
+                <div class="tb-btn">🐛</div>
+                <div class="sep"></div>
+                <div class="tb-btn">🔍</div>
+            </div>
+            <div class="ide-body">
+                <div class="ide-sidebar">
+                    <div class="sidebar-header">▼ Project</div>
+                    <div class="tree">
+                        <div class="tree-item"><span class="arrow">▼</span><span class="icon">📁</span><span
+                                class="name" style="font-weight:600;">my-web-project</span></div>
+                        <div class="tree-item"><span class="indent"></span><span class="arrow">▼</span><span
+                                class="icon">📁</span><span class="name">src</span></div>
+                        <div class="tree-item"><span class="indent"></span><span class="indent"></span><span
+                                class="arrow">▼</span><span class="icon">📁</span><span class="name">assets</span></div>
+                        <div class="tree-item"><span class="indent"></span><span class="indent"></span><span
+                                class="indent"></span><span class="arrow"></span><span class="icon">🖼️</span><span
+                                class="name">hero-banner.png</span></div>
+                        <div class="tree-item selected"><span class="indent"></span><span class="indent"></span><span
+                                class="indent"></span><span class="arrow"></span><span class="icon">🖼️</span><span
+                                class="name" style="font-weight: 600;">product-shot.jpg</span></div>
+                        <div class="tree-item"><span class="indent"></span><span class="indent"></span><span
+                                class="indent"></span><span class="arrow"></span><span class="icon">🖼️</span><span
+                                class="name">logo.webp</span></div>
+                        <div class="tree-item"><span class="indent"></span><span class="indent"></span><span
+                                class="indent"></span><span class="arrow"></span><span class="icon">🖼️</span><span
+                                class="name">background.png</span></div>
+                        <div class="tree-item"><span class="indent"></span><span class="indent"></span><span
+                                class="arrow">▶</span><span class="icon">📁</span><span class="name">components</span>
+                        </div>
+                        <div class="tree-item"><span class="indent"></span><span class="indent"></span><span
+                                class="arrow">▶</span><span class="icon">📁</span><span class="name">pages</span></div>
+                        <div class="tree-item"><span class="indent"></span><span class="indent"></span><span
+                                class="arrow"></span><span class="icon">📄</span><span class="name">App.tsx</span></div>
+                        <div class="tree-item"><span class="indent"></span><span class="indent"></span><span
+                                class="arrow"></span><span class="icon">📄</span><span class="name">index.tsx</span>
+                        </div>
+                        <div class="tree-item"><span class="indent"></span><span class="arrow">▶</span><span
+                                class="icon">📁</span><span class="name">public</span></div>
+                        <div class="tree-item"><span class="indent"></span><span class="arrow"></span><span
+                                class="icon">📄</span><span class="name">package.json</span></div>
+                        <div class="tree-item"><span class="indent"></span><span class="arrow"></span><span
+                                class="icon">📄</span><span class="name">tsconfig.json</span></div>
+                    </div>
+                </div>
+                <div class="ide-editor">
+                    <div class="editor-tabs">
+                        <div class="editor-tab active"><span>📄</span> App.tsx <span class="close">✕</span></div>
+                        <div class="editor-tab"><span>📄</span> index.tsx <span class="close">✕</span></div>
+                    </div>
+                    <div class="editor-content">
+                        <div class="code-line"><span class="ln">1</span><span class="code"><span
+                                    class="kw">import</span> React <span class="kw">from</span> <span
+                                    class="str">'react'</span>;</span></div>
+                        <div class="code-line"><span class="ln">2</span><span class="code"><span
+                                    class="kw">import</span> heroImg <span class="kw">from</span> <span
+                                    class="str">'./assets/hero-banner.png'</span>;</span></div>
+                        <div class="code-line"><span class="ln">3</span><span class="code"><span
+                                    class="kw">import</span> productImg <span class="kw">from</span> <span
+                                    class="str">'./assets/product-shot.jpg'</span>;</span></div>
+                        <div class="code-line"><span class="ln">4</span><span class="code"></span></div>
+                        <div class="code-line"><span class="ln">5</span><span class="code"><span class="kw">const</span>
+                                <span class="fn">App</span> = () <span class="kw">=></span> {</span></div>
+                        <div class="code-line"><span class="ln">6</span><span class="code"> <span
+                                    class="kw">return</span> (</span></div>
+                        <div class="code-line"><span class="ln">7</span><span class="code"> &lt;<span
+                                    class="kw">div</span> <span class="ann">className</span>=<span
+                                    class="str">"app"</span>&gt;</span></div>
+                        <div class="code-line"><span class="ln">8</span><span class="code"> &lt;<span
+                                    class="kw">img</span> <span class="ann">src</span>={heroImg} <span
+                                    class="ann">alt</span>=<span class="str">"Hero"</span> /&gt;</span></div>
+                        <div class="code-line"><span class="ln">9</span><span class="code"> &lt;<span
+                                    class="kw">img</span> <span class="ann">src</span>={productImg} <span
+                                    class="ann">alt</span>=<span class="str">"Product"</span> /&gt;</span></div>
+                        <div class="code-line"><span class="ln">10</span><span class="code"> <span class="cmt">{"//
+                                    TODO: optimize images before deploy"}</span></span></div>
+                        <div class="code-line"><span class="ln">11</span><span class="code"> &lt;/<span
+                                    class="kw">div</span>&gt;</span></div>
+                        <div class="code-line"><span class="ln">12</span><span class="code"> );</span></div>
+                        <div class="code-line"><span class="ln">13</span><span class="code">};</span></div>
+                        <div class="code-line"><span class="ln">14</span><span class="code"></span></div>
+                        <div class="code-line"><span class="ln">15</span><span class="code"><span class="kw">export
+                                    default</span> App;</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ide-statusbar">
+                <span>LF UTF-8 4 spaces Kotlin 2.0 Git: main</span>
+                <span>15:3 CRLF UTF-8</span>
+            </div>
+        </div>
+
+        <!-- Context Menu -->
+        <div class="ctx-menu" style="left: 190px; top: 210px;">
+            <div class="ctx-item"><span class="icon-sm">📋</span> Copy <span class="shortcut">Ctrl+C</span></div>
+            <div class="ctx-item"><span class="icon-sm">📄</span> Copy Path/Reference <span class="shortcut">▸</span>
+            </div>
+            <div class="ctx-item"><span class="icon-sm">📋</span> Paste <span class="shortcut">Ctrl+V</span></div>
+            <div class="ctx-sep"></div>
+            <div class="ctx-item"><span class="icon-sm">✏️</span> Rename... <span class="shortcut">Shift+F6</span></div>
+            <div class="ctx-item"><span class="icon-sm">🗑️</span> Delete <span class="shortcut">Delete</span></div>
+            <div class="ctx-sep"></div>
+            <div class="ctx-item highlight" style="font-weight:600;">
+                <span class="icon-sm">⚡</span> Compress Image...
+            </div>
+            <div class="ctx-item" style="color: #a0c8e8;">
+                <span class="icon-sm">📁</span> Compress All Images in Folder...
+            </div>
+            <div class="ctx-sep"></div>
+            <div class="ctx-item"><span class="icon-sm">🔍</span> Find Usages <span class="shortcut">Alt+F7</span></div>
+            <div class="ctx-item"><span class="icon-sm">📂</span> Open In <span class="shortcut">▸</span></div>
+        </div>
+
+        <div class="overlay-badge">⚡ One-Click Compression from Project Tree</div>
+    </div>
+
+
+    <!-- ===== SCREENSHOT 2: Compression Success + Progress ===== -->
+    <h2>Screenshot 2 — Background Compression with Success Notification (1200×760)</h2>
+    <p class="hint">Shows background progress bar and green success notification balloon</p>
+
+    <div class="screenshot" id="ss2">
+        <div class="ide-frame">
+            <div class="ide-titlebar">
+                <div class="dots">
+                    <div class="dot r"></div>
+                    <div class="dot y"></div>
+                    <div class="dot g"></div>
+                </div>
+                <div class="title">my-web-project — src/assets — IntelliJ IDEA</div>
+            </div>
+            <div class="ide-menubar">
+                <span>File</span><span>Edit</span><span>View</span><span>Navigate</span><span>Code</span><span>Refactor</span><span>Build</span><span>Run</span><span>Tools</span><span>VCS</span><span>Window</span><span>Help</span>
+            </div>
+            <div class="ide-toolbar">
+                <div class="tb-btn">📂</div>
+                <div class="tb-btn">💾</div>
+                <div class="sep"></div>
+                <div class="tb-btn">↩️</div>
+                <div class="tb-btn">↪️</div>
+                <div class="sep"></div>
+                <div class="tb-btn">🔨</div>
+                <div class="tb-btn">▶️</div>
+                <div class="tb-btn">🐛</div>
+                <div class="sep"></div>
+                <div class="tb-btn">🔍</div>
+            </div>
+            <div class="ide-body">
+                <div class="ide-sidebar">
+                    <div class="sidebar-header">▼ Project</div>
+                    <div class="tree">
+                        <div class="tree-item"><span class="arrow">▼</span><span class="icon">📁</span><span
+                                class="name" style="font-weight:600;">my-web-project</span></div>
+                        <div class="tree-item"><span class="indent"></span><span class="arrow">▼</span><span
+                                class="icon">📁</span><span class="name">src</span></div>
+                        <div class="tree-item"><span class="indent"></span><span class="indent"></span><span
+                                class="arrow">▼</span><span class="icon">📁</span><span class="name">assets</span></div>
+                        <div class="tree-item"><span class="indent"></span><span class="indent"></span><span
+                                class="indent"></span><span class="arrow"></span><span class="icon">🖼️</span><span
+                                class="name">hero-banner.png</span></div>
+                        <div class="tree-item"><span class="indent"></span><span class="indent"></span><span
+                                class="indent"></span><span class="arrow"></span><span class="icon">🖼️</span><span
+                                class="name">product-shot.jpg</span></div>
+                        <div class="tree-item"><span class="indent"></span><span class="indent"></span><span
+                                class="indent"></span><span class="arrow"></span><span class="icon">🖼️</span><span
+                                class="name">logo.webp</span></div>
+                        <div class="tree-item"><span class="indent"></span><span class="indent"></span><span
+                                class="indent"></span><span class="arrow"></span><span class="icon">🖼️</span><span
+                                class="name">background.png</span></div>
+                        <div class="tree-item"><span class="indent"></span><span class="indent"></span><span
+                                class="arrow">▶</span><span class="icon">📁</span><span class="name">components</span>
+                        </div>
+                        <div class="tree-item"><span class="indent"></span><span class="indent"></span><span
+                                class="arrow">▶</span><span class="icon">📁</span><span class="name">pages</span></div>
+                    </div>
+                </div>
+                <div class="ide-editor">
+                    <div class="editor-tabs">
+                        <div class="editor-tab active"><span>📄</span> App.tsx <span class="close">✕</span></div>
+                        <div class="editor-tab"><span>📄</span> index.tsx <span class="close">✕</span></div>
+                    </div>
+                    <div class="editor-content">
+                        <div class="code-line"><span class="ln">1</span><span class="code"><span
+                                    class="kw">import</span> React <span class="kw">from</span> <span
+                                    class="str">'react'</span>;</span></div>
+                        <div class="code-line"><span class="ln">2</span><span class="code"><span
+                                    class="kw">import</span> heroImg <span class="kw">from</span> <span
+                                    class="str">'./assets/hero-banner.png'</span>;</span></div>
+                        <div class="code-line"><span class="ln">3</span><span class="code"><span
+                                    class="kw">import</span> productImg <span class="kw">from</span> <span
+                                    class="str">'./assets/product-shot.jpg'</span>;</span></div>
+                        <div class="code-line"><span class="ln">4</span><span class="code"></span></div>
+                        <div class="code-line"><span class="ln">5</span><span class="code"><span class="kw">const</span>
+                                <span class="fn">App</span> = () <span class="kw">=></span> {</span></div>
+                        <div class="code-line"><span class="ln">6</span><span class="code"> <span
+                                    class="kw">return</span> (</span></div>
+                        <div class="code-line"><span class="ln">7</span><span class="code"> &lt;<span
+                                    class="kw">div</span> <span class="ann">className</span>=<span
+                                    class="str">"app"</span>&gt;</span></div>
+                        <div class="code-line"><span class="ln">8</span><span class="code"> &lt;<span
+                                    class="kw">img</span> <span class="ann">src</span>={heroImg} <span
+                                    class="ann">alt</span>=<span class="str">"Hero"</span> /&gt;</span></div>
+                        <div class="code-line"><span class="ln">9</span><span class="code"> &lt;<span
+                                    class="kw">img</span> <span class="ann">src</span>={productImg} <span
+                                    class="ann">alt</span>=<span class="str">"Product"</span> /&gt;</span></div>
+                        <div class="code-line"><span class="ln">10</span><span class="code"> <span class="cmt">{"//
+                                    Images optimized by MiConvert ✓"}</span></span></div>
+                        <div class="code-line"><span class="ln">11</span><span class="code"> &lt;/<span
+                                    class="kw">div</span>&gt;</span></div>
+                        <div class="code-line"><span class="ln">12</span><span class="code"> );</span></div>
+                        <div class="code-line"><span class="ln">13</span><span class="code">};</span></div>
+                        <div class="code-line"><span class="ln">14</span><span class="code"></span></div>
+                        <div class="code-line"><span class="ln">15</span><span class="code"><span class="kw">export
+                                    default</span> App;</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ide-statusbar">
+                <span>LF UTF-8 4 spaces TypeScript Git: main</span>
+                <span>10:5 CRLF UTF-8</span>
+            </div>
+        </div>
+
+        <!-- Success notification -->
+        <div class="notif-balloon notif-success" style="bottom: 50px; right: 20px; width: 340px; z-index: 20;">
+            <div class="notif-title">✅ MiConvert — Compressed Successfully!</div>
+            <div style="font-size: 13px; line-height: 1.5;">
+                <strong>product-shot.jpg</strong><br>
+                Original: 1.4 MB → Compressed: 780 KB<br>
+                <span style="color: #6bc071; font-weight: 600;">Saved 620 KB (44%)</span>
+            </div>
+        </div>
+
+        <!-- Progress bar at bottom -->
+        <div class="progress-bar-container" style="animation: none;">
+            <div class="progress-bar-fill" style="width: 100%; background: var(--ij-green);"></div>
+        </div>
+
+        <div class="overlay-badge">🧠 Smart Background Compression — Zero Interruptions</div>
+    </div>
+
+
+    <!-- ===== SCREENSHOT 3: Settings Page ===== -->
+    <h2>Screenshot 3 — Settings / Preferences Page (1200×760)</h2>
+    <p class="hint">Shows the MiConvert settings panel under Tools</p>
+
+    <div class="screenshot" id="ss3">
+        <div class="ide-frame">
+            <div class="ide-titlebar">
+                <div class="dots">
+                    <div class="dot r"></div>
+                    <div class="dot y"></div>
+                    <div class="dot g"></div>
+                </div>
+                <div class="title">my-web-project — IntelliJ IDEA</div>
+            </div>
+            <div class="ide-menubar">
+                <span>File</span><span>Edit</span><span>View</span><span>Navigate</span><span>Code</span><span>Refactor</span><span>Build</span><span>Run</span><span>Tools</span><span>VCS</span><span>Window</span><span>Help</span>
+            </div>
+            <div class="ide-toolbar">
+                <div class="tb-btn">📂</div>
+                <div class="tb-btn">💾</div>
+                <div class="sep"></div>
+                <div class="tb-btn">↩️</div>
+                <div class="tb-btn">↪️</div>
+                <div class="sep"></div>
+                <div class="tb-btn">🔨</div>
+                <div class="tb-btn">▶️</div>
+                <div class="tb-btn">🐛</div>
+            </div>
+            <div class="ide-body" style="filter: blur(1px); opacity: 0.5;">
+                <div class="ide-sidebar" style="width: 240px;">
+                    <div class="sidebar-header">▼ Project</div>
+                </div>
+                <div class="ide-editor">
+                    <div class="editor-tabs">
+                        <div class="editor-tab active">📄 App.tsx ✕</div>
+                    </div>
+                    <div class="editor-content"></div>
+                </div>
+            </div>
+            <div class="ide-statusbar" style="filter: blur(1px); opacity: 0.5;">
+                <span>LF UTF-8</span><span>1:1</span>
+            </div>
+        </div>
+
+        <!-- Settings Dialog -->
+        <div class="settings-overlay">
+            <div class="settings-dialog">
+                <div class="settings-titlebar">⚙️ Settings</div>
+                <div class="settings-body">
+                    <div class="settings-tree">
+                        <div class="stree-item parent">Appearance & Behavior</div>
+                        <div class="stree-item parent">Keymap</div>
+                        <div class="stree-item parent">Editor</div>
+                        <div class="stree-item parent">Plugins</div>
+                        <div class="stree-item parent">Version Control</div>
+                        <div class="stree-item parent">Build, Execution...</div>
+                        <div class="stree-item parent">Languages & Frameworks</div>
+                        <div class="stree-item parent" style="margin-top: 4px;">▼ Tools</div>
+                        <div class="stree-item child">Terminal</div>
+                        <div class="stree-item child">Database</div>
+                        <div class="stree-item child selected">⚡ MiConvert</div>
+                        <div class="stree-item child">File Watchers</div>
+                        <div class="stree-item child">External Tools</div>
+                    </div>
+                    <div class="settings-content">
+                        <h3>⚡ MiConvert Image Compressor</h3>
+
+                        <div class="settings-group">
+                            <label>Output Mode</label>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <div class="radio-circle checked"></div>
+                                    <span>Overwrite original file</span>
+                                </div>
+                                <div class="radio-item">
+                                    <div class="radio-circle"></div>
+                                    <span>Create new file with <code
+                                            style="background:#444; padding: 2px 6px; border-radius: 3px; font-family: 'JetBrains Mono', monospace; font-size: 12px;">_min</code>
+                                        suffix</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="settings-group">
+                            <label>JPEG Quality</label>
+                            <div class="slider-row">
+                                <span style="font-size: 12px; color: #888;">Low</span>
+                                <div class="slider-track">
+                                    <div class="slider-fill"></div>
+                                    <div class="slider-thumb"></div>
+                                </div>
+                                <span style="font-size: 12px; color: #888;">High</span>
+                                <span class="slider-val">80</span>
+                            </div>
+                        </div>
+
+                        <div class="settings-group">
+                            <label>File Size Threshold</label>
+                            <div style="display: flex; align-items: center; gap: 8px; margin-top: 6px;">
+                                <div
+                                    style="background: #444; padding: 6px 14px; border-radius: 4px; border: 1px solid #555; font-size: 14px; font-weight: 600; color: var(--ij-text-bright); min-width: 50px; text-align: center;">
+                                    2</div>
+                                <span style="font-size: 13px;">MB</span>
+                            </div>
+                            <div class="info-text">Files larger than 2MB will be redirected to MiConvert.com for deep
+                                optimization.</div>
+                        </div>
+
+                        <div class="settings-group">
+                            <a href="#" class="link">🌐 Visit MiConvert.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="settings-footer">
+                    <div class="btn-settings">Cancel</div>
+                    <div class="btn-settings primary">OK</div>
+                    <div class="btn-settings">Apply</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay-badge">⚙️ Fully Customizable Settings under Tools → MiConvert</div>
+    </div>
+
+
+    <div
+        style="max-width: 1200px; margin: 40px auto; padding: 24px; background: #333; border-radius: 12px; color: #ccc;">
+        <h3 style="color: #fff; margin-bottom: 12px;">📸 How to capture these screenshots:</h3>
+        <ol style="line-height: 2; font-size: 14px;">
+            <li>Open this file in <strong>Google Chrome</strong> (best rendering)</li>
+            <li>Set browser zoom to <strong>100%</strong> (Ctrl+0)</li>
+            <li>Use <strong>Windows Snipping Tool</strong> (Win+Shift+S) to capture each 1200×760 box</li>
+            <li>Or use Chrome DevTools (F12) → screenshot: select element → click on the <code>.screenshot</code> div
+            </li>
+            <li>Save as <strong>PNG</strong> and upload to <a href="https://plugins.jetbrains.com"
+                    style="color: #4e94ce;">plugins.jetbrains.com</a> → Plugin → Media</li>
+        </ol>
+    </div>
+
+</body>
+
+</html>
