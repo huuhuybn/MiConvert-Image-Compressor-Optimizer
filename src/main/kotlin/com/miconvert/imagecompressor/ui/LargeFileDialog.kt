@@ -46,6 +46,6 @@ class LargeFileDialog(
 
     override fun doOKAction() {
         super.doOKAction()
-        BrowserUtil.browse("https://miconvert.com/en/compress-image")
+        BrowserUtil.browse("https://miconvert.com/en/compress-tools")
     }
 }

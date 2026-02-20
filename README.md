@@ -66,7 +66,7 @@ Large image files **bloat your repository**, slow down builds, and waste bandwid
 1. Right-click any image file (`.jpg`, `.png`, `.webp`) in the **Project Tree**
 2. Select **MiConvert → ⚡ Compress Image...**
 3. For files **< 2MB**: Compression happens in the background with a progress bar
-4. For files **> 2MB**: A dialog opens offering to process via [MiConvert.com](https://miconvert.com/en/compress-image)
+4. For files **> 2MB**: A dialog opens offering to process via [MiConvert.com](https://miconvert.com/en/compress-tools)
 
 ### Compress All Images in a Folder
 1. Right-click any folder in the **Project Tree**
@@ -153,7 +153,7 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 - 📌 **Landing Page:** [huuhuybn.github.io/MiConvert-Image-Compressor-Optimizer](https://huuhuybn.github.io/MiConvert-Image-Compressor-Optimizer/)
 - 🌐 **Website:** [miconvert.com](https://miconvert.com)
-- 🖼️ **Image Compressor:** [miconvert.com/en/compress-image](https://miconvert.com/en/compress-image)
+- 🖼️ **Image Compressor:** [miconvert.com/en/compress-tools](https://miconvert.com/en/compress-tools)
 - 📧 **Contact:** [miconvert.com/en/contact](https://miconvert.com/en/contact)
 - 🐛 **Issues:** [GitHub Issues](https://github.com/huuhuybn/MiConvert-Image-Compressor-Optimizer/issues)
 

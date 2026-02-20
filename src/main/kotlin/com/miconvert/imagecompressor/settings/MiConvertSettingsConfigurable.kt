@@ -46,7 +46,7 @@ class MiConvertSettingsConfigurable : Configurable {
                     label("Files larger than ${settings.fileSizeThresholdMb}MB will be redirected to MiConvert.com for deep optimization.")
                 }
                 row {
-                    browserLink("Visit MiConvert.com", "https://miconvert.com/en/compress-image")
+                    browserLink("Visit MiConvert.com", "https://miconvert.com/en/compress-tools")
                 }
             }
 

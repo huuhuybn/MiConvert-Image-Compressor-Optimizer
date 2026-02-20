@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiConvert Image Compressor — JetBrains Plugin</title>
-    <meta name="description" content="Compress and optimize images (PNG, JPG, WebP) directly within your JetBrains IDE. One-click compression. Powered by MiConvert.com.">
-    <meta name="keywords" content="MiConvert, image compressor, JetBrains plugin, IntelliJ, WebStorm, Android Studio, PNG, JPG, WebP, image optimization">
+    <meta name="description"
+        content="Compress and optimize images (PNG, JPG, WebP) directly within your JetBrains IDE. One-click compression. Powered by MiConvert.com.">
+    <meta name="keywords"
+        content="MiConvert, image compressor, JetBrains plugin, IntelliJ, WebStorm, Android Studio, PNG, JPG, WebP, image optimization">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         :root {
             --bg-deep: #0a0e1a;
-            --bg-card: rgba(255,255,255,0.04);
-            --bg-card-hover: rgba(255,255,255,0.08);
+            --bg-card: rgba(255, 255, 255, 0.04);
+            --bg-card-hover: rgba(255, 255, 255, 0.08);
             --accent: #4FC3F7;
             --accent-2: #1565C0;
             --accent-glow: rgba(79, 195, 247, 0.3);
             --text: #e8ecf1;
             --text-dim: #8892a4;
             --text-bright: #ffffff;
-            --border: rgba(255,255,255,0.08);
+            --border: rgba(255, 255, 255, 0.08);
             --gradient-1: linear-gradient(135deg, #4FC3F7 0%, #1565C0 100%);
             --gradient-2: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --gradient-3: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -40,67 +52,101 @@
 
         /* === ANIMATED BACKGROUND === */
         .bg-grid {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-image:
-                radial-gradient(circle at 20% 50%, rgba(79,195,247,0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(102,126,234,0.05) 0%, transparent 50%),
-                radial-gradient(circle at 50% 80%, rgba(245,87,108,0.03) 0%, transparent 50%);
-            pointer-events: none; z-index: 0;
+                radial-gradient(circle at 20% 50%, rgba(79, 195, 247, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(245, 87, 108, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .bg-grid::before {
             content: '';
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 60px 60px;
         }
 
         /* === NAV === */
         nav {
-            position: fixed; top: 0; width: 100%; z-index: 100;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
             padding: 16px 0;
-            background: rgba(10,14,26,0.8);
+            background: rgba(10, 14, 26, 0.8);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
             transition: all 0.3s;
         }
 
         .nav-inner {
-            max-width: 1200px; margin: 0 auto;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 0 24px;
-            display: flex; align-items: center; justify-content: space-between;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .nav-logo {
-            display: flex; align-items: center; gap: 10px;
-            font-weight: 800; font-size: 18px;
-            text-decoration: none; color: var(--text-bright);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 18px;
+            text-decoration: none;
+            color: var(--text-bright);
         }
 
         .nav-logo-icon {
-            width: 32px; height: 32px;
+            width: 32px;
+            height: 32px;
             background: var(--gradient-1);
             border-radius: 8px;
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 16px;
         }
 
-        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
         .nav-links a {
-            color: var(--text-dim); text-decoration: none;
-            font-size: 14px; font-weight: 500;
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
             transition: color 0.2s;
         }
-        .nav-links a:hover { color: var(--text-bright); }
+
+        .nav-links a:hover {
+            color: var(--text-bright);
+        }
 
         .nav-cta {
             padding: 8px 20px;
             background: var(--gradient-1);
-            color: #fff !important; font-weight: 600 !important;
+            color: #fff !important;
+            font-weight: 600 !important;
             border-radius: 8px;
             transition: transform 0.2s, box-shadow 0.2s;
         }
+
         .nav-cta:hover {
             transform: translateY(-1px);
             box-shadow: 0 4px 20px var(--accent-glow);
@@ -110,35 +156,52 @@
         .hero {
             position: relative;
             min-height: 100vh;
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
             padding: 120px 24px 80px;
         }
 
-        .hero-content { max-width: 800px; position: relative; z-index: 1; }
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
 
         .hero-badge {
-            display: inline-flex; align-items: center; gap: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             padding: 6px 16px;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 100px;
-            font-size: 13px; font-weight: 500;
+            font-size: 13px;
+            font-weight: 500;
             color: var(--accent);
             margin-bottom: 32px;
             animation: fadeInDown 0.6s ease;
         }
 
         .hero-badge-dot {
-            width: 6px; height: 6px;
+            width: 6px;
+            height: 6px;
             background: #4ade80;
             border-radius: 50%;
             animation: pulse-dot 2s infinite;
         }
 
         @keyframes pulse-dot {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
         }
 
         .hero h1 {
@@ -160,24 +223,31 @@
         .hero p {
             font-size: clamp(16px, 2vw, 20px);
             color: var(--text-dim);
-            max-width: 560px; margin: 0 auto 40px;
+            max-width: 560px;
+            margin: 0 auto 40px;
             animation: fadeInUp 1s ease;
         }
 
         .hero-buttons {
-            display: flex; gap: 16px;
-            justify-content: center; flex-wrap: wrap;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
             animation: fadeInUp 1.2s ease;
         }
 
         .btn {
-            display: inline-flex; align-items: center; gap: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             padding: 14px 28px;
             border-radius: 12px;
-            font-size: 15px; font-weight: 600;
+            font-size: 15px;
+            font-weight: 600;
             text-decoration: none;
             transition: all 0.3s;
-            cursor: pointer; border: none;
+            cursor: pointer;
+            border: none;
         }
 
         .btn-primary {
@@ -185,9 +255,10 @@
             color: #fff;
             box-shadow: 0 4px 24px var(--accent-glow);
         }
+
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(79,195,247,0.4);
+            box-shadow: 0 8px 32px rgba(79, 195, 247, 0.4);
         }
 
         .btn-secondary {
@@ -195,6 +266,7 @@
             color: var(--text);
             border: 1px solid var(--border);
         }
+
         .btn-secondary:hover {
             background: var(--bg-card-hover);
             border-color: var(--accent);
@@ -208,25 +280,76 @@
             opacity: 0.4;
             animation: float 8s ease-in-out infinite;
         }
-        .orb-1 { width: 300px; height: 300px; background: var(--accent); top: 10%; left: -5%; animation-delay: 0s; }
-        .orb-2 { width: 250px; height: 250px; background: #764ba2; bottom: 10%; right: -5%; animation-delay: 2s; }
-        .orb-3 { width: 200px; height: 200px; background: #f5576c; top: 50%; left: 60%; animation-delay: 4s; }
+
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent);
+            top: 10%;
+            left: -5%;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 250px;
+            height: 250px;
+            background: #764ba2;
+            bottom: 10%;
+            right: -5%;
+            animation-delay: 2s;
+        }
+
+        .orb-3 {
+            width: 200px;
+            height: 200px;
+            background: #f5576c;
+            top: 50%;
+            left: 60%;
+            animation-delay: 4s;
+        }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-30px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
         }
 
         /* === SECTIONS === */
-        section { position: relative; z-index: 1; padding: 100px 24px; }
-        .section-inner { max-width: 1100px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 64px; }
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 24px;
+        }
+
+        .section-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
         .section-header h2 {
             font-size: clamp(28px, 4vw, 44px);
-            font-weight: 800; letter-spacing: -0.02em;
+            font-weight: 800;
+            letter-spacing: -0.02em;
             margin-bottom: 16px;
         }
-        .section-header p { color: var(--text-dim); font-size: 17px; max-width: 500px; margin: 0 auto; }
+
+        .section-header p {
+            color: var(--text-dim);
+            font-size: 17px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
 
         /* === FEATURES === */
         .features-grid {
@@ -247,7 +370,10 @@
 
         .feature-card::before {
             content: '';
-            position: absolute; top: 0; left: 0; right: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 2px;
             background: var(--gradient-1);
             opacity: 0;
@@ -256,33 +382,60 @@
 
         .feature-card:hover {
             background: var(--bg-card-hover);
-            border-color: rgba(79,195,247,0.2);
+            border-color: rgba(79, 195, 247, 0.2);
             transform: translateY(-4px);
         }
 
-        .feature-card:hover::before { opacity: 1; }
+        .feature-card:hover::before {
+            opacity: 1;
+        }
 
         .feature-icon {
-            width: 48px; height: 48px;
+            width: 48px;
+            height: 48px;
             border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 22px;
             margin-bottom: 20px;
         }
 
         .feature-card h3 {
-            font-size: 18px; font-weight: 700;
+            font-size: 18px;
+            font-weight: 700;
             margin-bottom: 10px;
         }
 
-        .feature-card p { color: var(--text-dim); font-size: 14px; line-height: 1.7; }
+        .feature-card p {
+            color: var(--text-dim);
+            font-size: 14px;
+            line-height: 1.7;
+        }
 
-        .icon-compress { background: rgba(79,195,247,0.15); }
-        .icon-smart { background: rgba(102,126,234,0.15); }
-        .icon-web { background: rgba(245,87,108,0.15); }
-        .icon-folder { background: rgba(74,222,128,0.15); }
-        .icon-formats { background: rgba(251,191,36,0.15); }
-        .icon-settings { background: rgba(167,139,250,0.15); }
+        .icon-compress {
+            background: rgba(79, 195, 247, 0.15);
+        }
+
+        .icon-smart {
+            background: rgba(102, 126, 234, 0.15);
+        }
+
+        .icon-web {
+            background: rgba(245, 87, 108, 0.15);
+        }
+
+        .icon-folder {
+            background: rgba(74, 222, 128, 0.15);
+        }
+
+        .icon-formats {
+            background: rgba(251, 191, 36, 0.15);
+        }
+
+        .icon-settings {
+            background: rgba(167, 139, 250, 0.15);
+        }
 
         /* === HOW IT WORKS === */
         .steps {
@@ -299,48 +452,83 @@
         }
 
         .step-number {
-            width: 56px; height: 56px;
+            width: 56px;
+            height: 56px;
             margin: 0 auto 20px;
             background: var(--gradient-1);
             border-radius: 16px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 22px; font-weight: 800; color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 800;
+            color: #fff;
         }
 
-        .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
-        .step p { color: var(--text-dim); font-size: 14px; }
+        .step h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            color: var(--text-dim);
+            font-size: 14px;
+        }
 
         /* === DEMO MOCKUP === */
-        .demo-section { background: rgba(79,195,247,0.02); }
+        .demo-section {
+            background: rgba(79, 195, 247, 0.02);
+        }
+
         .demo-mockup {
-            max-width: 700px; margin: 0 auto;
+            max-width: 700px;
+            margin: 0 auto;
             background: #1a1f2e;
             border-radius: 16px;
             border: 1px solid var(--border);
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
         }
 
         .demo-titlebar {
-            display: flex; align-items: center; gap: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             padding: 12px 16px;
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
             border-bottom: 1px solid var(--border);
         }
 
         .demo-dot {
-            width: 12px; height: 12px; border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
         }
-        .demo-dot.red { background: #ff5f57; }
-        .demo-dot.yellow { background: #febc2e; }
-        .demo-dot.green { background: #28c840; }
+
+        .demo-dot.red {
+            background: #ff5f57;
+        }
+
+        .demo-dot.yellow {
+            background: #febc2e;
+        }
+
+        .demo-dot.green {
+            background: #28c840;
+        }
 
         .demo-titlebar-text {
-            flex: 1; text-align: center;
-            font-size: 12px; color: var(--text-dim);
+            flex: 1;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-dim);
         }
 
-        .demo-body { display: flex; min-height: 350px; }
+        .demo-body {
+            display: flex;
+            min-height: 350px;
+        }
 
         .demo-sidebar {
             width: 220px;
@@ -350,7 +538,8 @@
         }
 
         .demo-sidebar-title {
-            font-size: 11px; font-weight: 700;
+            font-size: 11px;
+            font-weight: 700;
             color: var(--text-dim);
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -358,51 +547,76 @@
         }
 
         .demo-file {
-            display: flex; align-items: center; gap: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             padding: 6px 8px;
             border-radius: 6px;
             cursor: pointer;
             transition: background 0.2s;
         }
 
-        .demo-file:hover { background: rgba(255,255,255,0.05); }
-        .demo-file.selected { background: rgba(79,195,247,0.1); color: var(--accent); }
+        .demo-file:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
 
-        .demo-file-icon { font-size: 14px; }
-        .demo-file-name { font-size: 12px; }
+        .demo-file.selected {
+            background: rgba(79, 195, 247, 0.1);
+            color: var(--accent);
+        }
+
+        .demo-file-icon {
+            font-size: 14px;
+        }
+
+        .demo-file-name {
+            font-size: 12px;
+        }
 
         .demo-context-menu {
             position: absolute;
             background: #252a3a;
-            border: 1px solid rgba(255,255,255,0.12);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 8px;
             padding: 4px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
             min-width: 240px;
-            left: 240px; top: 170px;
+            left: 240px;
+            top: 170px;
             opacity: 0;
             transform: scale(0.95);
             animation: menuAppear 0.6s 1s forwards;
         }
 
         @keyframes menuAppear {
-            to { opacity: 1; transform: scale(1); }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .demo-menu-item {
-            display: flex; align-items: center; gap: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             padding: 8px 12px;
             border-radius: 6px;
             font-size: 13px;
             transition: background 0.15s;
         }
 
-        .demo-menu-item:hover { background: rgba(255,255,255,0.06); }
-        .demo-menu-item.highlight { background: rgba(79,195,247,0.12); color: var(--accent); }
+        .demo-menu-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .demo-menu-item.highlight {
+            background: rgba(79, 195, 247, 0.12);
+            color: var(--accent);
+        }
 
         .demo-menu-sep {
             height: 1px;
-            background: rgba(255,255,255,0.06);
+            background: rgba(255, 255, 255, 0.06);
             margin: 4px 8px;
         }
 
@@ -418,26 +632,34 @@
 
         .demo-notif {
             position: absolute;
-            bottom: 20px; right: 20px;
+            bottom: 20px;
+            right: 20px;
             background: #1b2836;
-            border: 1px solid rgba(74,222,128,0.3);
+            border: 1px solid rgba(74, 222, 128, 0.3);
             border-radius: 10px;
             padding: 12px 18px;
             font-size: 13px;
-            display: flex; align-items: center; gap: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             opacity: 0;
             transform: translateY(10px);
             animation: notifAppear 0.5s 2s forwards;
         }
 
         @keyframes notifAppear {
-            to { opacity: 1; transform: translateY(0); }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* === COMPAT === */
         .compat-logos {
-            display: flex; flex-wrap: wrap;
-            justify-content: center; gap: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
         }
 
         .compat-item {
@@ -445,7 +667,8 @@
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 12px;
-            font-size: 14px; font-weight: 600;
+            font-size: 14px;
+            font-weight: 600;
             transition: all 0.3s;
         }
 
@@ -461,7 +684,8 @@
         }
 
         .cta-box {
-            max-width: 700px; margin: 0 auto;
+            max-width: 700px;
+            margin: 0 auto;
             padding: 64px 48px;
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -472,13 +696,17 @@
 
         .cta-box::before {
             content: '';
-            position: absolute; top: 0; left: 0; right: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 3px;
             background: var(--gradient-1);
         }
 
         .cta-box h2 {
-            font-size: 32px; font-weight: 800;
+            font-size: 32px;
+            font-weight: 800;
             margin-bottom: 16px;
         }
 
@@ -490,14 +718,16 @@
 
         /* === FOOTER === */
         footer {
-            position: relative; z-index: 1;
+            position: relative;
+            z-index: 1;
             padding: 48px 24px;
             border-top: 1px solid var(--border);
             text-align: center;
         }
 
         .footer-brand {
-            font-size: 15px; font-weight: 600;
+            font-size: 15px;
+            font-weight: 600;
             margin-bottom: 8px;
         }
 
@@ -505,7 +735,10 @@
             color: var(--accent);
             text-decoration: none;
         }
-        .footer-brand a:hover { text-decoration: underline; }
+
+        .footer-brand a:hover {
+            text-decoration: underline;
+        }
 
         .footer-sub {
             color: var(--text-dim);
@@ -513,7 +746,9 @@
         }
 
         .footer-links {
-            display: flex; justify-content: center; gap: 24px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
             margin-top: 20px;
         }
 
@@ -523,17 +758,34 @@
             font-size: 13px;
             transition: color 0.2s;
         }
-        .footer-links a:hover { color: var(--accent); }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
 
         /* === ANIMATIONS === */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .reveal {
@@ -549,298 +801,329 @@
 
         /* === RESPONSIVE === */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .demo-sidebar { width: 160px; }
-            .demo-context-menu { left: 160px; min-width: 200px; }
-            .cta-box { padding: 40px 24px; }
+            .nav-links {
+                display: none;
+            }
+
+            .demo-sidebar {
+                width: 160px;
+            }
+
+            .demo-context-menu {
+                left: 160px;
+                min-width: 200px;
+            }
+
+            .cta-box {
+                padding: 40px 24px;
+            }
         }
 
         @media (max-width: 480px) {
-            .demo-body { flex-direction: column; }
-            .demo-sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
-            .demo-context-menu { left: 20px; top: 220px; }
+            .demo-body {
+                flex-direction: column;
+            }
+
+            .demo-sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .demo-context-menu {
+                left: 20px;
+                top: 220px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<div class="bg-grid"></div>
+    <div class="bg-grid"></div>
 
-<!-- NAV -->
-<nav>
-    <div class="nav-inner">
-        <a href="#" class="nav-logo">
-            <div class="nav-logo-icon">⚡</div>
-            MiConvert
-        </a>
-        <ul class="nav-links">
-            <li><a href="#features">Features</a></li>
-            <li><a href="#how-it-works">How It Works</a></li>
-            <li><a href="#demo">Preview</a></li>
-            <li><a href="#compatibility">IDEs</a></li>
-            <li><a href="https://miconvert.com" target="_blank" class="nav-cta">MiConvert.com</a></li>
-        </ul>
-    </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-
-    <div class="hero-content">
-        <div class="hero-badge">
-            <span class="hero-badge-dot"></span>
-            JetBrains Marketplace Plugin
-        </div>
-
-        <h1>
-            <span class="gradient-text">Compress Images</span><br>
-            Without Leaving Your IDE
-        </h1>
-
-        <p>
-            Stop context-switching. Right-click any image in your project tree,
-            and MiConvert compresses it instantly — JPG, PNG, WebP.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="https://github.com/huuhuybn/MiConvert-Image-Compressor-Optimizer" class="btn btn-primary">
-                ⬇️ Get the Plugin
+    <!-- NAV -->
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <div class="nav-logo-icon">⚡</div>
+                MiConvert
             </a>
-            <a href="https://miconvert.com/en/compress-image" target="_blank" class="btn btn-secondary">
-                🌐 Try Web Version
-            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#demo">Preview</a></li>
+                <li><a href="#compatibility">IDEs</a></li>
+                <li><a href="https://miconvert.com" target="_blank" class="nav-cta">MiConvert.com</a></li>
+            </ul>
         </div>
-    </div>
-</section>
+    </nav>
 
-<!-- FEATURES -->
-<section id="features">
-    <div class="section-inner">
-        <div class="section-header reveal">
-            <h2>Everything You Need</h2>
-            <p>Powerful image compression that fits seamlessly into your JetBrains workflow.</p>
-        </div>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
 
-        <div class="features-grid">
-            <div class="feature-card reveal">
-                <div class="feature-icon icon-compress">⚡</div>
-                <h3>One-Click Compression</h3>
-                <p>Right-click any image file and select "Compress Image". That's it. No dialogs, no exports, no hassle.</p>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                JetBrains Marketplace Plugin
             </div>
 
-            <div class="feature-card reveal">
-                <div class="feature-icon icon-smart">🧠</div>
-                <h3>Smart Engine</h3>
-                <p>Files under 2MB are compressed silently in the background. You won't even notice — just smaller files.</p>
-            </div>
+            <h1>
+                <span class="gradient-text">Compress Images</span><br>
+                Without Leaving Your IDE
+            </h1>
 
-            <div class="feature-card reveal">
-                <div class="feature-icon icon-web">🌐</div>
-                <h3>Deep Web Integration</h3>
-                <p>Heavy files (>2MB) are intelligently redirected to MiConvert.com's powerful cloud engine for deep optimization.</p>
-            </div>
+            <p>
+                Stop context-switching. Right-click any image in your project tree,
+                and MiConvert compresses it instantly — JPG, PNG, WebP.
+            </p>
 
-            <div class="feature-card reveal">
-                <div class="feature-icon icon-folder">📁</div>
-                <h3>Batch Processing</h3>
-                <p>Right-click any folder to compress all images recursively. Perfect for cleaning up asset directories.</p>
-            </div>
-
-            <div class="feature-card reveal">
-                <div class="feature-icon icon-formats">🎨</div>
-                <h3>Multi-Format Support</h3>
-                <p>Works flawlessly with JPG, PNG, and WebP formats. The most common image types in web projects.</p>
-            </div>
-
-            <div class="feature-card reveal">
-                <div class="feature-icon icon-settings">⚙️</div>
-                <h3>Fully Customizable</h3>
-                <p>Choose to overwrite originals or create <code>_min</code> copies. Adjust JPEG quality. Your workflow, your rules.</p>
+            <div class="hero-buttons">
+                <a href="https://github.com/huuhuybn/MiConvert-Image-Compressor-Optimizer" class="btn btn-primary">
+                    ⬇️ Get the Plugin
+                </a>
+                <a href="https://miconvert.com/en/compress-tools" target="_blank" class="btn btn-secondary">
+                    🌐 Try Web Version
+                </a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- HOW IT WORKS -->
-<section id="how-it-works">
-    <div class="section-inner">
-        <div class="section-header reveal">
-            <h2>How It Works</h2>
-            <p>Three steps. Zero friction.</p>
+    <!-- FEATURES -->
+    <section id="features">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <h2>Everything You Need</h2>
+                <p>Powerful image compression that fits seamlessly into your JetBrains workflow.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon icon-compress">⚡</div>
+                    <h3>One-Click Compression</h3>
+                    <p>Right-click any image file and select "Compress Image". That's it. No dialogs, no exports, no
+                        hassle.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon icon-smart">🧠</div>
+                    <h3>Smart Engine</h3>
+                    <p>Files under 2MB are compressed silently in the background. You won't even notice — just smaller
+                        files.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon icon-web">🌐</div>
+                    <h3>Deep Web Integration</h3>
+                    <p>Heavy files (>2MB) are intelligently redirected to MiConvert.com's powerful cloud engine for deep
+                        optimization.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon icon-folder">📁</div>
+                    <h3>Batch Processing</h3>
+                    <p>Right-click any folder to compress all images recursively. Perfect for cleaning up asset
+                        directories.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon icon-formats">🎨</div>
+                    <h3>Multi-Format Support</h3>
+                    <p>Works flawlessly with JPG, PNG, and WebP formats. The most common image types in web projects.
+                    </p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <div class="feature-icon icon-settings">⚙️</div>
+                    <h3>Fully Customizable</h3>
+                    <p>Choose to overwrite originals or create <code>_min</code> copies. Adjust JPEG quality. Your
+                        workflow, your rules.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="steps">
-            <div class="step reveal">
-                <div class="step-number">1</div>
-                <h3>Right-Click</h3>
-                <p>Select any image file or folder in your Project Tree</p>
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <h2>How It Works</h2>
+                <p>Three steps. Zero friction.</p>
             </div>
 
-            <div class="step reveal">
-                <div class="step-number">2</div>
-                <h3>Compress</h3>
-                <p>Click "⚡ Compress Image..." from the MiConvert menu</p>
-            </div>
+            <div class="steps">
+                <div class="step reveal">
+                    <div class="step-number">1</div>
+                    <h3>Right-Click</h3>
+                    <p>Select any image file or folder in your Project Tree</p>
+                </div>
 
-            <div class="step reveal">
-                <div class="step-number">3</div>
-                <h3>Done ✓</h3>
-                <p>A notification shows how many KB you saved. That's it!</p>
+                <div class="step reveal">
+                    <div class="step-number">2</div>
+                    <h3>Compress</h3>
+                    <p>Click "⚡ Compress Image..." from the MiConvert menu</p>
+                </div>
+
+                <div class="step reveal">
+                    <div class="step-number">3</div>
+                    <h3>Done ✓</h3>
+                    <p>A notification shows how many KB you saved. That's it!</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- DEMO -->
-<section id="demo" class="demo-section">
-    <div class="section-inner">
-        <div class="section-header reveal">
-            <h2>See It In Action</h2>
-            <p>Native IDE experience — no popups, no interruptions.</p>
-        </div>
-
-        <div class="demo-mockup reveal" style="position: relative;">
-            <div class="demo-titlebar">
-                <div class="demo-dot red"></div>
-                <div class="demo-dot yellow"></div>
-                <div class="demo-dot green"></div>
-                <div class="demo-titlebar-text">my-project — IntelliJ IDEA</div>
+    <!-- DEMO -->
+    <section id="demo" class="demo-section">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <h2>See It In Action</h2>
+                <p>Native IDE experience — no popups, no interruptions.</p>
             </div>
 
-            <div class="demo-body">
-                <div class="demo-sidebar">
-                    <div class="demo-sidebar-title">Project</div>
-                    <div class="demo-file">
-                        <span class="demo-file-icon">📁</span>
-                        <span class="demo-file-name">src/</span>
+            <div class="demo-mockup reveal" style="position: relative;">
+                <div class="demo-titlebar">
+                    <div class="demo-dot red"></div>
+                    <div class="demo-dot yellow"></div>
+                    <div class="demo-dot green"></div>
+                    <div class="demo-titlebar-text">my-project — IntelliJ IDEA</div>
+                </div>
+
+                <div class="demo-body">
+                    <div class="demo-sidebar">
+                        <div class="demo-sidebar-title">Project</div>
+                        <div class="demo-file">
+                            <span class="demo-file-icon">📁</span>
+                            <span class="demo-file-name">src/</span>
+                        </div>
+                        <div class="demo-file">
+                            <span class="demo-file-icon">📁</span>
+                            <span class="demo-file-name">assets/</span>
+                        </div>
+                        <div class="demo-file" style="padding-left: 24px;">
+                            <span class="demo-file-icon">🖼️</span>
+                            <span class="demo-file-name">hero.png</span>
+                        </div>
+                        <div class="demo-file selected" style="padding-left: 24px;">
+                            <span class="demo-file-icon">🖼️</span>
+                            <span class="demo-file-name">banner.jpg</span>
+                        </div>
+                        <div class="demo-file" style="padding-left: 24px;">
+                            <span class="demo-file-icon">🖼️</span>
+                            <span class="demo-file-name">logo.webp</span>
+                        </div>
+                        <div class="demo-file">
+                            <span class="demo-file-icon">📄</span>
+                            <span class="demo-file-name">index.html</span>
+                        </div>
                     </div>
-                    <div class="demo-file">
-                        <span class="demo-file-icon">📁</span>
-                        <span class="demo-file-name">assets/</span>
+
+                    <div class="demo-editor">
+                        <span style="opacity: 0.4">// Select an image to edit</span>
                     </div>
-                    <div class="demo-file" style="padding-left: 24px;">
-                        <span class="demo-file-icon">🖼️</span>
-                        <span class="demo-file-name">hero.png</span>
-                    </div>
-                    <div class="demo-file selected" style="padding-left: 24px;">
-                        <span class="demo-file-icon">🖼️</span>
-                        <span class="demo-file-name">banner.jpg</span>
-                    </div>
-                    <div class="demo-file" style="padding-left: 24px;">
-                        <span class="demo-file-icon">🖼️</span>
-                        <span class="demo-file-name">logo.webp</span>
-                    </div>
-                    <div class="demo-file">
-                        <span class="demo-file-icon">📄</span>
-                        <span class="demo-file-name">index.html</span>
+
+                    <!-- Context Menu -->
+                    <div class="demo-context-menu">
+                        <div class="demo-menu-item">📋 Copy</div>
+                        <div class="demo-menu-item">📋 Paste</div>
+                        <div class="demo-menu-sep"></div>
+                        <div class="demo-menu-item">🗑️ Delete</div>
+                        <div class="demo-menu-sep"></div>
+                        <div class="demo-menu-item highlight">⚡ Compress Image...</div>
+                        <div class="demo-menu-item" style="color: var(--text-dim);">📁 Compress All Images...</div>
                     </div>
                 </div>
 
-                <div class="demo-editor">
-                    <span style="opacity: 0.4">// Select an image to edit</span>
-                </div>
-
-                <!-- Context Menu -->
-                <div class="demo-context-menu">
-                    <div class="demo-menu-item">📋 Copy</div>
-                    <div class="demo-menu-item">📋 Paste</div>
-                    <div class="demo-menu-sep"></div>
-                    <div class="demo-menu-item">🗑️ Delete</div>
-                    <div class="demo-menu-sep"></div>
-                    <div class="demo-menu-item highlight">⚡ Compress Image...</div>
-                    <div class="demo-menu-item" style="color: var(--text-dim);">📁 Compress All Images...</div>
+                <!-- Success notification -->
+                <div class="demo-notif">
+                    ✅ <span>Compressed! Saved <strong>145KB</strong> (45%)</span>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Success notification -->
-            <div class="demo-notif">
-                ✅ <span>Compressed! Saved <strong>145KB</strong> (45%)</span>
+    <!-- COMPATIBILITY -->
+    <section id="compatibility">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <h2>Works With Every JetBrains IDE</h2>
+                <p>One plugin, all your favorite development environments.</p>
+            </div>
+
+            <div class="compat-logos reveal">
+                <div class="compat-item">💡 IntelliJ IDEA</div>
+                <div class="compat-item">🌐 WebStorm</div>
+                <div class="compat-item">🤖 Android Studio</div>
+                <div class="compat-item">🐘 PhpStorm</div>
+                <div class="compat-item">🐍 PyCharm</div>
+                <div class="compat-item">⚙️ CLion</div>
+                <div class="compat-item">🔷 GoLand</div>
+                <div class="compat-item">🟣 Rider</div>
+                <div class="compat-item">💎 RubyMine</div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- COMPATIBILITY -->
-<section id="compatibility">
-    <div class="section-inner">
-        <div class="section-header reveal">
-            <h2>Works With Every JetBrains IDE</h2>
-            <p>One plugin, all your favorite development environments.</p>
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-box reveal">
+            <h2>Ready to Shrink Your Project?</h2>
+            <p>Install the MiConvert plugin and start compressing images in seconds. Free and open source.</p>
+            <div class="hero-buttons">
+                <a href="https://github.com/huuhuybn/MiConvert-Image-Compressor-Optimizer" class="btn btn-primary">
+                    ⬇️ Install from GitHub
+                </a>
+                <a href="https://miconvert.com" target="_blank" class="btn btn-secondary">
+                    🌐 Visit MiConvert.com
+                </a>
+            </div>
         </div>
+    </section>
 
-        <div class="compat-logos reveal">
-            <div class="compat-item">💡 IntelliJ IDEA</div>
-            <div class="compat-item">🌐 WebStorm</div>
-            <div class="compat-item">🤖 Android Studio</div>
-            <div class="compat-item">🐘 PhpStorm</div>
-            <div class="compat-item">🐍 PyCharm</div>
-            <div class="compat-item">⚙️ CLion</div>
-            <div class="compat-item">🔷 GoLand</div>
-            <div class="compat-item">🟣 Rider</div>
-            <div class="compat-item">💎 RubyMine</div>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-brand">
+            Powered by <a href="https://miconvert.com" target="_blank">MiConvert.com</a>
         </div>
-    </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-    <div class="cta-box reveal">
-        <h2>Ready to Shrink Your Project?</h2>
-        <p>Install the MiConvert plugin and start compressing images in seconds. Free and open source.</p>
-        <div class="hero-buttons">
-            <a href="https://github.com/huuhuybn/MiConvert-Image-Compressor-Optimizer" class="btn btn-primary">
-                ⬇️ Install from GitHub
-            </a>
-            <a href="https://miconvert.com" target="_blank" class="btn btn-secondary">
-                🌐 Visit MiConvert.com
-            </a>
+        <div class="footer-sub">
+            © 2026 MiConvert — Compress smarter, code faster.
         </div>
-    </div>
-</section>
+        <div class="footer-links">
+            <a href="https://miconvert.com" target="_blank">Website</a>
+            <a href="https://miconvert.com/en/compress-tools" target="_blank">Web Compressor</a>
+            <a href="https://miconvert.com/en/contact" target="_blank">Contact</a>
+            <a href="https://github.com/huuhuybn/MiConvert-Image-Compressor-Optimizer" target="_blank">GitHub</a>
+        </div>
+    </footer>
 
-<!-- FOOTER -->
-<footer>
-    <div class="footer-brand">
-        Powered by <a href="https://miconvert.com" target="_blank">MiConvert.com</a>
-    </div>
-    <div class="footer-sub">
-        © 2026 MiConvert — Compress smarter, code faster.
-    </div>
-    <div class="footer-links">
-        <a href="https://miconvert.com" target="_blank">Website</a>
-        <a href="https://miconvert.com/en/compress-image" target="_blank">Web Compressor</a>
-        <a href="https://miconvert.com/en/contact" target="_blank">Contact</a>
-        <a href="https://github.com/huuhuybn/MiConvert-Image-Compressor-Optimizer" target="_blank">GitHub</a>
-    </div>
-</footer>
+    <script>
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
-<script>
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Nav scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.padding = '10px 0';
+                nav.style.background = 'rgba(10,14,26,0.95)';
+            } else {
+                nav.style.padding = '16px 0';
+                nav.style.background = 'rgba(10,14,26,0.8)';
             }
         });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Nav scroll effect
-    window.addEventListener('scroll', () => {
-        const nav = document.querySelector('nav');
-        if (window.scrollY > 50) {
-            nav.style.padding = '10px 0';
-            nav.style.background = 'rgba(10,14,26,0.95)';
-        } else {
-            nav.style.padding = '16px 0';
-            nav.style.background = 'rgba(10,14,26,0.8)';
-        }
-    });
-</script>
+    </script>
 
 </body>
+
 </html>
