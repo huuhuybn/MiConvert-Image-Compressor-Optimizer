@@ -11,9 +11,14 @@
 
 <p align="center">
   <a href="https://miconvert.com"><img src="https://img.shields.io/badge/Powered%20by-MiConvert.com-blue?style=for-the-badge" alt="Powered by MiConvert.com"/></a>
+  <a href="https://huuhuybn.github.io/MiConvert-Image-Compressor-Optimizer/"><img src="https://img.shields.io/badge/🌐_Landing_Page-Visit-blueviolet?style=for-the-badge" alt="Landing Page"/></a>
   <img src="https://img.shields.io/badge/Platform-IntelliJ%20%7C%20WebStorm%20%7C%20Android%20Studio-orange?style=for-the-badge" alt="Platforms"/>
   <img src="https://img.shields.io/badge/Version-1.0.0-green?style=for-the-badge" alt="Version"/>
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License"/>
+</p>
+
+<p align="center">
+  📌 <strong><a href="https://huuhuybn.github.io/MiConvert-Image-Compressor-Optimizer/">View Landing Page →</a></strong>
 </p>
 
 ---
@@ -146,6 +151,7 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 ## 🔗 Links
 
+- 📌 **Landing Page:** [huuhuybn.github.io/MiConvert-Image-Compressor-Optimizer](https://huuhuybn.github.io/MiConvert-Image-Compressor-Optimizer/)
 - 🌐 **Website:** [miconvert.com](https://miconvert.com)
 - 🖼️ **Image Compressor:** [miconvert.com/en/compress-image](https://miconvert.com/en/compress-image)
 - 📧 **Contact:** [miconvert.com/en/contact](https://miconvert.com/en/contact)
