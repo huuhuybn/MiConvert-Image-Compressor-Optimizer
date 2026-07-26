@@ -1,4 +1,4 @@
-<idea-plugin>
+<idea-plugin url="https://miconvert.com/en/compress-png">
     <id>com.miconvert.imagecompressor</id>
     <name>MiConvert Image Compressor</name>
     <vendor email="support@miconvert.com" url="https://miconvert.com">MiConvert</vendor>
