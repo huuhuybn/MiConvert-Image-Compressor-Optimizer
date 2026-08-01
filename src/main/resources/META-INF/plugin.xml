@@ -1,12 +1,12 @@
-<idea-plugin url="https://miconvert.com/en/compress-png">
+<idea-plugin url="https://miconvert.com/en/compress-png?utm_source=jetbrains&amp;utm_medium=listing&amp;utm_campaign=jetbrains-image-compressor">
     <id>com.miconvert.imagecompressor</id>
     <name>MiConvert Image Compressor</name>
-    <vendor email="support@miconvert.com" url="https://miconvert.com">MiConvert</vendor>
+    <vendor email="support@miconvert.com" url="https://miconvert.com?utm_source=jetbrains&amp;utm_medium=listing&amp;utm_campaign=jetbrains-image-compressor">MiConvert</vendor>
 
     <description><![CDATA[
         <h2>Optimize images without breaking your coding flow!</h2>
         <p>Compress and optimize images (PNG, JPG, WebP) directly within your IDE with a single click.
-        Instantly reduce project size. Powered by <a href="https://miconvert.com">MiConvert.com</a>.</p>
+        Instantly reduce project size. Powered by <a href="https://miconvert.com?utm_source=jetbrains&amp;utm_medium=listing&amp;utm_campaign=jetbrains-image-compressor">MiConvert.com</a>.</p>
 
         <h3>Key Features</h3>
         <ul>

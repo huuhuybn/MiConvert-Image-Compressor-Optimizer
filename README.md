@@ -6,11 +6,11 @@
 
 <p align="center">
   <strong>Compress and optimize images (PNG, JPG, WebP) directly within your IDE with a single click.</strong><br>
-  Instantly reduce project size. Powered by <a href="https://miconvert.com">MiConvert.com</a>
+  Instantly reduce project size. Powered by <a href="https://miconvert.com?utm_source=jetbrains&utm_medium=readme&utm_campaign=jetbrains-image-compressor">MiConvert.com</a>
 </p>
 
 <p align="center">
-  <a href="https://miconvert.com"><img src="https://img.shields.io/badge/Powered%20by-MiConvert.com-blue?style=for-the-badge" alt="Powered by MiConvert.com"/></a>
+  <a href="https://miconvert.com?utm_source=jetbrains&utm_medium=readme&utm_campaign=jetbrains-image-compressor"><img src="https://img.shields.io/badge/Powered%20by-MiConvert.com-blue?style=for-the-badge" alt="Powered by MiConvert.com"/></a>
   <a href="https://huuhuybn.github.io/MiConvert-Image-Compressor-Optimizer/"><img src="https://img.shields.io/badge/🌐_Landing_Page-Visit-blueviolet?style=for-the-badge" alt="Landing Page"/></a>
   <img src="https://img.shields.io/badge/Platform-IntelliJ%20%7C%20WebStorm%20%7C%20Android%20Studio-orange?style=for-the-badge" alt="Platforms"/>
   <img src="https://img.shields.io/badge/Version-1.0.0-green?style=for-the-badge" alt="Version"/>
@@ -37,7 +37,7 @@ Large image files **bloat your repository**, slow down builds, and waste bandwid
 |---------|-------------|
 | ⚡ **One-Click Compression** | Right-click any image file (or folder) and select "Compress Image" |
 | 🧠 **Smart Engine** | Automatically compresses smaller files (<2MB) seamlessly in the background |
-| 🌐 **Deep Web Integration** | Intelligently redirects heavy files (>2MB) to the powerful [MiConvert.com](https://miconvert.com) web engine |
+| 🌐 **Deep Web Integration** | Intelligently redirects heavy files (>2MB) to the powerful [MiConvert.com](https://miconvert.com?utm_source=jetbrains&utm_medium=readme&utm_campaign=jetbrains-image-compressor) web engine |
 | 📁 **Batch Processing** | Compress all images in a folder with a single click |
 | 🎨 **Multi-Format Support** | Works flawlessly with **JPG**, **PNG**, and **WebP** |
 | ⚙️ **Customizable** | Choose to overwrite originals or create `_min` suffix copies |
@@ -66,7 +66,7 @@ Large image files **bloat your repository**, slow down builds, and waste bandwid
 1. Right-click any image file (`.jpg`, `.png`, `.webp`) in the **Project Tree**
 2. Select **MiConvert → ⚡ Compress Image...**
 3. For files **< 2MB**: Compression happens in the background with a progress bar
-4. For files **> 2MB**: A dialog opens offering to process via [MiConvert.com](https://miconvert.com/en/compress-tools)
+4. For files **> 2MB**: A dialog opens offering to process via [MiConvert.com](https://miconvert.com/en/compress-tools?utm_source=jetbrains&utm_medium=readme&utm_campaign=jetbrains-image-compressor)
 
 ### Compress All Images in a Folder
 1. Right-click any folder in the **Project Tree**
@@ -152,14 +152,14 @@ MIT License — see [LICENSE](LICENSE) for details.
 ## 🔗 Links
 
 - 📌 **Landing Page:** [huuhuybn.github.io/MiConvert-Image-Compressor-Optimizer](https://huuhuybn.github.io/MiConvert-Image-Compressor-Optimizer/)
-- 🌐 **Website:** [miconvert.com](https://miconvert.com)
-- 🖼️ **Image Compressor:** [miconvert.com/en/compress-tools](https://miconvert.com/en/compress-tools)
-- 📧 **Contact:** [miconvert.com/en/contact](https://miconvert.com/en/contact)
+- 🌐 **Website:** [miconvert.com](https://miconvert.com?utm_source=jetbrains&utm_medium=readme&utm_campaign=jetbrains-image-compressor)
+- 🖼️ **Image Compressor:** [miconvert.com/en/compress-tools](https://miconvert.com/en/compress-tools?utm_source=jetbrains&utm_medium=readme&utm_campaign=jetbrains-image-compressor)
+- 📧 **Contact:** [miconvert.com/en/contact](https://miconvert.com/en/contact?utm_source=jetbrains&utm_medium=readme&utm_campaign=jetbrains-image-compressor)
 - 🐛 **Issues:** [GitHub Issues](https://github.com/huuhuybn/MiConvert-Image-Compressor-Optimizer/issues)
 
 ---
 
 <p align="center">
-  <strong>Powered by <a href="https://miconvert.com">MiConvert.com</a></strong><br>
+  <strong>Powered by <a href="https://miconvert.com?utm_source=jetbrains&utm_medium=readme&utm_campaign=jetbrains-image-compressor">MiConvert.com</a></strong><br>
   <sub>© 2026 MiConvert — Compress smarter, code faster.</sub>
 </p>

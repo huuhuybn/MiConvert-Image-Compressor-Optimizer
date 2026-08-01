@@ -46,7 +46,7 @@ class MiConvertSettingsConfigurable : Configurable {
                     label("Files larger than ${settings.fileSizeThresholdMb}MB will be redirected to MiConvert.com for deep optimization.")
                 }
                 row {
-                    browserLink("Visit MiConvert.com", "https://miconvert.com/en/compress-tools")
+                    browserLink("Visit MiConvert.com", "https://miconvert.com/en/compress-tools?utm_source=jetbrains&utm_medium=app&utm_campaign=jetbrains-image-compressor")
                 }
             }
 
@@ -55,7 +55,7 @@ class MiConvertSettingsConfigurable : Configurable {
                     label("MiConvert Image Compressor v1.0.0")
                 }
                 row {
-                    comment("Compress and optimize images directly within your IDE.<br>Powered by <a href=\"https://miconvert.com\">MiConvert.com</a>")
+                    comment("Compress and optimize images directly within your IDE.<br>Powered by <a href=\"https://miconvert.com?utm_source=jetbrains&utm_medium=app&utm_campaign=jetbrains-image-compressor\">MiConvert.com</a>")
                 }
             }
         }
